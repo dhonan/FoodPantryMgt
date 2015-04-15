@@ -1,0 +1,61 @@
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\LarcomAndYoung.Windows.Forms.ReSize.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.Form1.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmChanges.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmExtractInformation.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmGroupItems.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmItems.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmMain.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmPrintSampleTicket.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmPrintTickets.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmReport.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmReportDeliveries.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmRestoreVisitsFromBackup.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmSettings.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmSetAvailability.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmTest.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.Resources.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food_Pantry.frmRecordBags.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food Pantry.vbproj.GenerateResource.Cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food Pantry.exe.licenses
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry_VS 2008\Backup\obj\Debug\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\LarcomAndYoung.Windows.Forms.ReSize.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form1.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmChanges.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmExtractInformation.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmGroupItems.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmItems.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmMain.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmPrintSampleTicket.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmPrintTickets.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmReport.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmReportDeliveries.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmRestoreVisitsFromBackup.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmSettings.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmSetAvailability.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmTest.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Resources.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmRecordBags.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food Pantry.vbproj.GenerateResource.Cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food Pantry.exe.licenses
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Food Pantry.exe.config
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\RdlCompile.cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\RdlCompile.compiled
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmOpenTickets.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmTestReport.resources
