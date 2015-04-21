@@ -526,4 +526,8 @@ Public Class frmPrintTickets
     Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+    Private Sub lblReserved_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblReserved.Click
+
+    End Sub
 End Class

@@ -1,6 +1,8 @@
-﻿Imports System
+﻿'https://msdn.microsoft.com/en-us/library/ms252091(v=vs.90).aspx
 
 
+
+Imports System
 Imports System.IO
 Imports System.Data
 Imports System.Text
@@ -11,18 +13,55 @@ Imports System.Collections.Generic
 Imports System.Windows.Forms
 Imports Microsoft.Reporting.WinForms
 
-Public Class Demo
+
+
+Public Class TicketPrint
     Implements IDisposable
     Private m_currentPageIndex As Integer
     Private m_streams As IList(Of Stream)
+    Private VisitID As Integer
 
-    Private Function LoadSalesData() As DataTable
+
+
+
+    Private Function LoadFoodData() As DataTable
         ' Create a new DataSet and read sales data file 
         ' data.xml into the first DataTable.
-        Dim dataSet As New DataSet()
-        dataSet.ReadXml("..\..\data.xml")
-        Return dataSet.Tables(0)
+
+        'Dim dataSet As New DataSet()
+        'dataSet.ReadXml("..\..\data.xml")
+        'Return dataSet.Tables(0)
+
+        'Dim DataSet2 As New DataSet()
+
+        Dim TA As New Food_PantryDataSetTableAdapters.PrintTicketFoodItemsTableAdapter
+        'Dim TA As New Food_PantryDataSetTableAdapters.ClientsTableAdapter
+        Return TA.GetData()
+
     End Function
+
+    Private Function LoadVisitData() As DataTable
+        ' Create a new DataSet and read sales data file 
+
+
+        Dim TA As New Food_PantryDataSet2TableAdapters.qryVisitsWithClientForPickTicketTableAdapter
+        Dim Tbl As New Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable
+
+        Tbl = TA.GetDataByID(VisitID)
+        Return Tbl
+
+
+        'TA.GetData()
+
+        'Dim TA As New Food_PantryDataSetTableAdapters.ClientsTableAdapter
+        'Return TA.GetDataByID(VisitID)
+
+        'Return TA.GetData()
+
+    End Function
+
+
+
 
     ' Routine to provide to the report renderer, in order to
     ' save an image for each page of the report.
@@ -88,10 +127,30 @@ Public Class Demo
 
     ' Create a local report for Report.rdlc, load the data,
     ' export the report to an .emf file, and print it.
-    Private Sub Run()
+    Private Sub Run(ByVal ID As Integer)
         Dim report As New LocalReport()
-        report.ReportPath = "..\..\Report.rdlc"
-        report.DataSources.Add(New ReportDataSource("Sales", LoadSalesData()))
+        VisitID = ID
+
+        report.ReportPath = "..\..\PrintTicket2.rdlc"
+
+
+
+        'report.ClientsTableAdapter.Fill(Me.Food_PantryDataSet.Clients)
+
+        'report.DataSources.Add(New ReportDataSource("Sales", LoadSalesData()))
+        'report.DataSources.Clear()
+        'report.DataSources.Add(New ReportDataSource("Clients", LoadSalesData()))
+        ' report.DataSources.Add(New ReportDataSource("Food_PantryDataSet", LoadSalesData()))
+
+
+        'report.DataSources.Add(New ReportDataSource("Clients", GetReportData()))
+        'report.DataSources.Add(New ReportDataSource("Food_PantryDataSet.Clients", GetReportData()))
+        'report.DataSources.Add(New ReportDataSource("Food_PantryDataSet", GetReportData()))
+        'WORKED report.DataSources.Add(New ReportDataSource("Food_PantryDataSet_Clients", LoadSalesData()))
+        report.DataSources.Add(New ReportDataSource("Food_PantryDataSet_PrintTicketFoodItems", LoadFoodData()))
+        report.DataSources.Add(New ReportDataSource("Food_PantryDataSet2_qryVisitsWithClientForPickTicket", LoadVisitData()))
+
+
         Export(report)
         Print()
     End Sub
@@ -106,9 +165,12 @@ Public Class Demo
     End Sub
 
     Public Shared Sub Main(ByVal args As String())
-        Using demo As New Demo()
-            demo.Run()
+        Using TicketPrint As New TicketPrint()
+            TicketPrint.Run(args(0))
+
         End Using
+
     End Sub
 End Class
+
 

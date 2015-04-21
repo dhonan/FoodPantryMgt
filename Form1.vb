@@ -21,6 +21,8 @@ Public Class Form1
     'https://msdn.microsoft.com/en-us/library/ms252091.aspx
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Food_PantryDataSet.PrintTicketFoodItems' table. You can move, or remove it, as needed.
+        Me.PrintTicketFoodItemsTableAdapter.Fill(Me.Food_PantryDataSet.PrintTicketFoodItems)
         'TODO: This line of code loads data into the 'Food_PantryDataSet.Clients' table. You can move, or remove it, as needed.
         Me.ClientsTableAdapter.Fill(Me.Food_PantryDataSet.Clients)
 

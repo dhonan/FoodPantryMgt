@@ -4,9 +4,10 @@ Imports System.Runtime.InteropServices
 Imports System.Data.OleDb
 Imports System.IO
 Imports System.Globalization
+Imports System.Data.SqlClient
 
 Public Class frmMain
- 
+
     Dim Loading As Boolean = True
     Dim Changed As Boolean = False
     Dim Updating As Boolean = False
@@ -21,6 +22,10 @@ Public Class frmMain
     Dim Testing As Boolean = False
     Dim ConvertCases As Boolean = False
     Dim UpdateButton As Boolean = False
+    Dim VisitID As Integer
+
+    Public ThisVisitID As Integer = 0  ' Helmar 3/27/15
+
 
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'TestingMode = False
@@ -54,6 +59,7 @@ Public Class frmMain
             Me.Close()
         End If
         dB = New OleDb.OleDbConnection(DSN)
+
 
 
         'CLA.CheckForDBUpdates = True
@@ -214,7 +220,7 @@ Public Class frmMain
         End Select
 
         Dim dWork As Date = DateAdd(DateInterval.Day, -AdjustDays, Now)
-        
+
         'VisitedThisWeekStartDate = Format(dWork, "MM/dd/yyyy") & " 12:00:00 AM"
         VisitedThisWeekStartDate = Format(Now, "MM/dd/yyyy") & " 12:00:00 AM"   ' 2/13/15 DJH changed to current date
         VisitedThisWeekEndDate = Format(Now, "MM/dd/yyyy") & " 11:59:59 PM"
@@ -361,7 +367,7 @@ Public Class frmMain
             SQL += "LastName, FirstName"
         End If
         ' "SELECT CaseNumber, FirstName, LastName FROM Clients AND Active = True ORDER BY CaseNumber"
-       
+
         dB.Open()
         Command = New OleDbCommand(SQL, dB)
         rsWork = Command.ExecuteReader
@@ -413,7 +419,7 @@ Public Class frmMain
         chkSNAP.Checked = False
         chkWIC.Checked = False
         cbFuelAsst.Checked = False
-        cbMedicaid.checked = False
+        cbMedicaid.Checked = False
         cbAidBlind.Checked = False
         cbCSFP.Checked = False
         cbOldAge.Checked = False
@@ -711,6 +717,7 @@ Public Class frmMain
         ' 1/31/2015 added appointment time and logic to validate D. Honan
 
         Dim dtApptTime As DateTime = #12:00:00 AM#
+        Dim dtTEst As DateTime = Now()
 
         If Not IsDate(tbApptTime.Text) Then
             MsgBox("Please enter a valid Appointment Time")
@@ -718,6 +725,7 @@ Public Class frmMain
         Else
 
             dtApptTime = tbApptTime.Text
+            
             dtApptTime = dtApptTime.TimeOfDay.ToString
             Dim date2 As DateTime = #12:00:00 AM#
             If dtApptTime = date2 Then
@@ -768,7 +776,7 @@ Public Class frmMain
             Whoops = True
         End If
 
-        
+
 
 
         ' If we haven't already recorded this visit, do so, otherwize, warn...
@@ -787,6 +795,9 @@ Public Class frmMain
         dB.Open()
         Command = New OleDbCommand(SQL, dB)
         rsWork = Command.ExecuteReader
+
+        VisitID = 0
+
         If Not rsWork.Read Then
             If LastVisitADelivery(SelectedClientNumber, SelectedClientName) And Not chkDelivery.Checked Then
                 If MsgBox("Is this a delivery?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
@@ -799,12 +810,20 @@ Public Class frmMain
             'djh 3/19/15
             VisitDate = datApptDate.Value
 
+            '4/18/15 DJH - changed to table adapters for insert since OLEDB was holding updates/
+            ' inserts in cache and was not reachable from Table Adapters
 
-            SQL = "INSERT INTO Visits (CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery) VALUES(" & SelectedClientNumber _
+            SQL = "INSERT INTO Visits (CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery) " _
+                & "VALUES(" & SelectedClientNumber _
                 & ", #" & VisitDate & "#, #" & dtApptTime & "#, 0," _
                 & chkDelivery.Checked.ToString & ")"
-            ExecuteSQLCommand(SQL)
-            dB.Close()
+            ' ExecuteSQLCommand(SQL)
+            'dB.Close()
+            Dim TA1 As New DataSet1TableAdapters.VisitsTableAdapter
+            TA1.Insert(SelectedClientNumber, VisitDate, dtApptTime, 0, False)
+            ' Dim TA3 As New DataSet1TableAdapters.VisitsTableAdapter
+            VisitID = TA1.GetLastIdForClient(SelectedClientNumber)
+
         Else
             dB.Close()
             MsgBox("You've already recorded a visit for this client!", MsgBoxStyle.Exclamation) 'DJH 3/20/15
@@ -813,10 +832,23 @@ Public Class frmMain
         If Not Whoops Then
 
             ' Print the ticket, maybe
+
             If chkPrintIt.Checked Then
-                frmPrintTickets.ShowDialog()
-                frmPrintTickets = Nothing
-                frmPrintTickets.Dispose()
+
+                Dim args(2) As String
+                args(0) = VisitID
+                args(1) = ""
+                args(2) = ""
+
+                Using TicketPrint As New TicketPrint()
+                    TicketPrint.Main(args)
+                End Using
+
+
+                dB.Close()
+                'frmPrintTickets.ShowDialog()
+                'frmPrintTickets = Nothing
+                'frmPrintTickets.Dispose()
             End If
             chkPrintIt.Checked = True
             If Not GetClientActiveOrInactiveFromNumber(SelectedClientNumber) Then
@@ -850,20 +882,24 @@ Public Class frmMain
         btnDelete.Visible = False   ' Don't do SetVis, 'cause that clears the display of the last (this) person.
     End Sub
     Private Sub btnPrintSample_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrintSample.Click
-        SelectedClientNumber = 0
-        SelectedClientName = ""
-        PrintSample = True
+        'SelectedClientNumber = 0
+        'SelectedClientName = ""
+        'PrintSample = True
         ' Note, FootPrints food pantry needs to choose whether to print homeless items or not.  St. Vincents does not.
-        If GetASetting("FootPrints", "True") Then
-            frmPrintSampleTicket.ShowDialog()
-            frmPrintSampleTicket = Nothing
-            frmPrintSampleTicket.Dispose()
-        Else
-            PrintFacLessSelections = True
-            frmPrintTickets.ShowDialog()
-            frmPrintTickets = Nothing
-            frmPrintTickets.Dispose()
-        End If
+        'If GetASetting("FootPrints", "True") Then
+        'frmPrintSampleTicket.ShowDialog()
+        'frmPrintSampleTicket = Nothing
+        'frmPrintSampleTicket.Dispose()
+        'Else
+        'PrintFacLessSelections = True
+        'frmPrintTickets.ShowDialog()
+        'frmPrintTickets = Nothing
+        'frmPrintTickets.Dispose()
+        'End If
+        frmPrintTicketSample1.ShowDialog()
+        frmPrintTicketSample1 = Nothing
+        frmPrintTicketSample1.Dispose()
+
         PrintSample = False
     End Sub
     Private Sub btnUnVisit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUnVisit.Click
@@ -1331,7 +1367,7 @@ Public Class frmMain
             tbApptTime.Text = ""
         End If
         UpdateButton = False
-        
+
         Record2Form()
         'txtFirstName.Focus()
 
@@ -1443,9 +1479,15 @@ Public Class frmMain
         LoadList()
     End Sub
     Private Sub mnuEditItemsMaintain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuEditItemsMaintain.Click
-        frmItems.ShowDialog()
-        frmItems = Nothing
-        frmItems.Dispose()
+        frmItems2.ShowDialog()
+        frmItems2 = Nothing
+        frmItems2.Dispose()
+    End Sub
+    Private Sub UpdateItemTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UpdateItemTypesToolStripMenuItem.Click
+        frmItemTypes.ShowDialog()
+        frmItemTypes = Nothing
+        frmItemTypes.Dispose()
+
     End Sub
     Private Sub mnuEditItemsGroupItems_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuEditItemsGroupItems.Click
         frmGroupItems.ShowDialog()
@@ -1455,7 +1497,7 @@ Public Class frmMain
     Private Sub mnuFileBackup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuFileBackup.Click
         BackupTheDB(True)
     End Sub
-    Private Sub mnuEditItemsSetAvailability_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuEditItemsSetAvailability.Click
+    Private Sub mnuEditItemsSetAvailability_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         frmSetAvailability.ShowDialog()
         frmSetAvailability = Nothing
         frmSetAvailability.Dispose()
@@ -1952,7 +1994,7 @@ Public Class frmMain
         End If
     End Sub
 
-    
+
 
     ' Private Sub tbApptTime_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles tbApptTime.Validating
     '    If Len(tbApptTime.Text) = 0 Then
@@ -1986,4 +2028,47 @@ Public Class frmMain
         cmbFemaleSeniors.SelectedIndexChanged
 
     End Sub
+
+    Private Sub lstOfVisits_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstOfVisits.DoubleClick
+
+        ' From Helmar 3/27/2015 - suppors pop up form to view/change visit information
+
+        Dim sWork As String = lstOfVisits.Text
+        'Dim iWork As String = InStr(sWork, ",")
+        Dim iWork As String = InStr(Trim(sWork), " ")
+
+
+        Dim ThisVisitDate = Trim(Strings.Left(sWork, iWork - 1))
+        ThisVisitDate = Replace(ThisVisitDate, ",", "")
+
+        Dim ThisNumberOfBags As Integer = 0
+        Dim ThisDelivery As Boolean = False
+        dB.Open()
+        ' Dim SQL As String = "SELECT * FROM Visits WHERE CaseNumber = " & SelectedClientNumber _
+        '    & " AND VisitDate BETWEEN #" & ThisVisitDate & " 12:00:00 AM" & "#" _
+        '   & " AND #" & ThisVisitDate & " 11:59:59 PM" & "#"
+        Dim SQL As String = "SELECT * FROM Visits WHERE CaseNumber = " & SelectedClientNumber _
+           & " AND VisitDate BETWEEN #" & ThisVisitDate & " 12:00:00 AM" & "#" _
+          & " AND #" & ThisVisitDate & " 11:59:59 PM" & "#"
+
+        Command = New OleDbCommand(SQL, dB)
+        rsWork = Command.ExecuteReader
+        rsWork.Read()
+        ThisNumberOfBags = rsWork!NumberOfBags
+        ThisDelivery = rsWork!Delivery
+        ThisVisitID = rsWork!ID
+        rsWork.Close()
+        dB.Close()
+        frmVisit.ShowDialog()
+        frmVisit = Nothing
+        frmVisit.Dispose()
+        LoadListOfVisitsForClient()
+        ShowVisitsToday()
+        ShowDeliveriesToday()
+        txtSearchClientNumber.Focus()
+    End Sub
+
+
+
+    
 End Class

@@ -1,0 +1,124 @@
+Item	Type	Available
+Apple Sauces	USDA	True
+asst. Fruits	Fresh	True
+asst. vegtables	Fresh	False
+Bacon	Misc. Meats	False
+Bar soap	Home	True
+Bleach	Home/Personal Care	True
+Blueberries	USDA Frozen	False
+Bread	Baked Goods	True
+Butter	Dairy	True
+Cake	Baked Goods	True
+Canned chicken	Food	False
+canned fruit	Food	False
+canned soda	Food	True
+Canned soup	Food	True
+Canned tomatoes	Food	True
+Canned veggies	Food	True
+Carrots	USDA	True
+Carrots	Fresh	True
+Cauliflower	Fresh	False
+Cereal cold	Food	True
+Cereal hot	Food	True
+Cheese	Dairy	False
+Chicken	Meats pick only 2	True
+Chicken legs	Meats pick only 2	False
+Chicken legs	USDA Frozen	False
+chicken livers	Misc. Meats	True
+Chicken whole	USDA Frozen	True
+Coffee	Food	True
+Corn	USDA	False
+Corn Flakes	USDA	True
+Cranberry Juice Conc.	USDA	True
+Cranberry sauce	USDA	True
+Cupcakes	Baked Goods	True
+deodorant	Home	True
+Dish soap	Home	False
+Donuts	Baked Goods	True
+Eggs	Dairy	False
+Elbow macaroni	USDA	True
+English Muffins	Baked Goods	False
+flavored water	Food	True
+Fresh Milk	Dairy	False
+Grape Juice	USDA	False
+Grapefruit Juice	USDA	False
+Gravy	Food	True
+Green beans	USDA	False
+Hamburger	Meats pick only 2	True
+Hamburger helper	Food	True
+Hams	Meats pick only 2	True
+Hot dogs	Misc. Meats	True
+Instant Mshed Potatoes	USDA	True
+Instant potatoes	USDA	False
+Jell-O or pudding	Food	True
+Jelly	Food	True
+Juices, kids	Food	True
+Kid snacks 12	Food	True
+Kidney beans	USDA	False
+Laundry detergent	Home	True
+Lunchmeats	Misc. Meats	True
+Macaroni & Cheese	Food	True
+Maxi Pads	Home	False
+Melons	Fresh	True
+milk	Dairy	True
+Mixed fruit	USDA	False
+Muffin mix	Food	False
+Muffins	Baked Goods	False
+Oat cereal	USDA	False
+Onions	Fresh	True
+Pancake mix	Food	True
+Pancake syrup	Food	True
+Pasta	Food	True
+Pasta sauce	Food	True
+Peaches	USDA	False
+Peanut Butter	USDA	False
+Peanut butter	Food	True
+Pears	USDA	False
+Pepperoni	Specials	False
+Pie filling	Food	True
+Pink salmon	Specials	False
+popcorn	Specials	True
+Pork	Meats(2 only)	True
+Pork & Beans	Food	True
+Pork loin	Misc. Meats	False
+pork necks	Specials	False
+Pork patties	USDA Frozen	False
+Potato slices	USDA	True
+Potatoes	Fresh	True
+Potatoes Mashed Inst	USDA	True
+Raisins	USDA	True
+razors	Home	True
+Refried beans	USDA	False
+Ribs	Misc. Meats	False
+Rice cereal	USDA	False
+Rice, white	Food	True
+Roast	Misc. Meats	False
+Rolls	Baked Goods	True
+Round Steak	Misc. Meats	True
+Saltines, Crackers	Food	False
+Sausage	Misc. Meats	True
+Shampoo	Home	True
+shaving cream	Home	True
+Shelf Milk	USDA	False
+Sliced carrots	USDA	True
+Spaghetti	USDA	False
+Spaghetti sauce	USDA	False
+Spaghettios	Food	False
+Spinach	USDA	False
+Steak	Misc. Meats	True
+Strawbwerries	Specials	True
+Tampax	Home	True
+Tea	Food	True
+Toilet paper	Home	True
+tomato soup	USDA	False
+toothbrush	Home	True
+toothpaste	Home	True
+tripe	Specials	False
+Tuna	Food	True
+Tuna Helpers	Food	True
+Turkey	Meats pick only 2	True
+Turkeys whole	USDA Frozen	False
+Veal	Misc. Meats	False
+Vegetarian beans	USDA	True
+Yoghurt	Dairy	True
+ZZZZ		False

@@ -24,38 +24,50 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer
-        Me.Food_PantryDataSet = New Food_Pantry.Food_PantryDataSet
         Me.ClientsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Food_PantryDataSet = New Food_Pantry.Food_PantryDataSet
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer
         Me.ClientsTableAdapter = New Food_Pantry.Food_PantryDataSetTableAdapters.ClientsTableAdapter
-        CType(Me.Food_PantryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PrintTicketFoodItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrintTicketFoodItemsTableAdapter = New Food_Pantry.Food_PantryDataSetTableAdapters.PrintTicketFoodItemsTableAdapter
         CType(Me.ClientsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Food_PantryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrintTicketFoodItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ReportViewer1
-        '
-        ReportDataSource1.Name = "Food_PantryDataSet_Clients"
-        ReportDataSource1.Value = Me.ClientsBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Food_Pantry.Report1.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(107, 95)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(400, 250)
-        Me.ReportViewer1.TabIndex = 0
-        '
-        'Food_PantryDataSet
-        '
-        Me.Food_PantryDataSet.DataSetName = "Food_PantryDataSet"
-        Me.Food_PantryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ClientsBindingSource
         '
         Me.ClientsBindingSource.DataMember = "Clients"
         Me.ClientsBindingSource.DataSource = Me.Food_PantryDataSet
         '
+        'Food_PantryDataSet
+        '
+        Me.Food_PantryDataSet.DataSetName = "Food_PantryDataSet"
+        Me.Food_PantryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "Food_PantryDataSet_PrintTicketFoodItems"
+        ReportDataSource1.Value = Me.PrintTicketFoodItemsBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Food_Pantry.PrintTicket1.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(107, 95)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(400, 250)
+        Me.ReportViewer1.TabIndex = 0
+        '
         'ClientsTableAdapter
         '
         Me.ClientsTableAdapter.ClearBeforeFill = True
+        '
+        'PrintTicketFoodItemsBindingSource
+        '
+        Me.PrintTicketFoodItemsBindingSource.DataMember = "PrintTicketFoodItems"
+        Me.PrintTicketFoodItemsBindingSource.DataSource = Me.Food_PantryDataSet
+        '
+        'PrintTicketFoodItemsTableAdapter
+        '
+        Me.PrintTicketFoodItemsTableAdapter.ClearBeforeFill = True
         '
         'Form1
         '
@@ -65,8 +77,9 @@ Partial Class Form1
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.Food_PantryDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Food_PantryDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrintTicketFoodItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -74,4 +87,6 @@ Partial Class Form1
     Friend WithEvents ClientsBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Food_PantryDataSet As Food_Pantry.Food_PantryDataSet
     Friend WithEvents ClientsTableAdapter As Food_Pantry.Food_PantryDataSetTableAdapters.ClientsTableAdapter
+    Friend WithEvents PrintTicketFoodItemsBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents PrintTicketFoodItemsTableAdapter As Food_Pantry.Food_PantryDataSetTableAdapters.PrintTicketFoodItemsTableAdapter
 End Class

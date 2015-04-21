@@ -36,8 +36,8 @@ Partial Class frmMain
         Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuEditFoodItems = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuEditItemsMaintain = New System.Windows.Forms.ToolStripMenuItem
-        Me.mnuEditItemsSetAvailability = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuEditItemsGroupItems = New System.Windows.Forms.ToolStripMenuItem
+        Me.UpdateItemTypesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuEditVisits = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuEditSettings = New System.Windows.Forms.ToolStripMenuItem
         Me.mnuReport = New System.Windows.Forms.ToolStripMenuItem
@@ -243,7 +243,7 @@ Partial Class frmMain
         '
         'mnuEditFoodItems
         '
-        Me.mnuEditFoodItems.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditItemsMaintain, Me.mnuEditItemsSetAvailability, Me.mnuEditItemsGroupItems})
+        Me.mnuEditFoodItems.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditItemsMaintain, Me.mnuEditItemsGroupItems, Me.UpdateItemTypesToolStripMenuItem})
         Me.mnuEditFoodItems.Name = "mnuEditFoodItems"
         Me.mnuEditFoodItems.Size = New System.Drawing.Size(116, 22)
         Me.mnuEditFoodItems.Text = "Items"
@@ -251,21 +251,21 @@ Partial Class frmMain
         'mnuEditItemsMaintain
         '
         Me.mnuEditItemsMaintain.Name = "mnuEditItemsMaintain"
-        Me.mnuEditItemsMaintain.Size = New System.Drawing.Size(149, 22)
+        Me.mnuEditItemsMaintain.Size = New System.Drawing.Size(173, 22)
         Me.mnuEditItemsMaintain.Text = "Maintain"
-        '
-        'mnuEditItemsSetAvailability
-        '
-        Me.mnuEditItemsSetAvailability.Name = "mnuEditItemsSetAvailability"
-        Me.mnuEditItemsSetAvailability.Size = New System.Drawing.Size(149, 22)
-        Me.mnuEditItemsSetAvailability.Text = "Set availability"
         '
         'mnuEditItemsGroupItems
         '
         Me.mnuEditItemsGroupItems.Name = "mnuEditItemsGroupItems"
-        Me.mnuEditItemsGroupItems.Size = New System.Drawing.Size(149, 22)
+        Me.mnuEditItemsGroupItems.Size = New System.Drawing.Size(173, 22)
         Me.mnuEditItemsGroupItems.Text = "Group items"
         Me.mnuEditItemsGroupItems.Visible = False
+        '
+        'UpdateItemTypesToolStripMenuItem
+        '
+        Me.UpdateItemTypesToolStripMenuItem.Name = "UpdateItemTypesToolStripMenuItem"
+        Me.UpdateItemTypesToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.UpdateItemTypesToolStripMenuItem.Text = "Update Item Types"
         '
         'mnuEditVisits
         '
@@ -1579,7 +1579,6 @@ Partial Class frmMain
     Friend WithEvents pnlClients As System.Windows.Forms.Panel
     Friend WithEvents lvClients As System.Windows.Forms.ListView
     Friend WithEvents mnuEditItemsMaintain As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnuEditItemsSetAvailability As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuFileBackup As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuEditVisits As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents chkPrintIt As System.Windows.Forms.CheckBox
@@ -1701,4 +1700,5 @@ Partial Class frmMain
     Friend WithEvents cmbFemaleAdults As System.Windows.Forms.ComboBox
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents UpdateItemTypesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
