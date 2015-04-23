@@ -25,40 +25,20 @@ Partial Class frmPrintTicketSample1
         Me.components = New System.ComponentModel.Container
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
         Me.PrintTicketFoodItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Food_PantryDataSet = New Food_Pantry.Food_PantryDataSet
         Me.qryVisitsWithClientForPickTicketBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Food_PantryDataSet2 = New Food_Pantry.Food_PantryDataSet2
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer
         Me.PrintTicketFoodItemsTableAdapter = New Food_Pantry.Food_PantryDataSetTableAdapters.PrintTicketFoodItemsTableAdapter
         Me.qryVisitsWithClientForPickTicketTableAdapter = New Food_Pantry.Food_PantryDataSet2TableAdapters.qryVisitsWithClientForPickTicketTableAdapter
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
         CType(Me.PrintTicketFoodItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Food_PantryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.qryVisitsWithClientForPickTicketBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Food_PantryDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PrintTicketFoodItemsBindingSource
-        '
-        Me.PrintTicketFoodItemsBindingSource.DataMember = "PrintTicketFoodItems"
-        Me.PrintTicketFoodItemsBindingSource.DataSource = Me.Food_PantryDataSet
-        '
-        'Food_PantryDataSet
-        '
-        Me.Food_PantryDataSet.DataSetName = "Food_PantryDataSet"
-        Me.Food_PantryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'qryVisitsWithClientForPickTicketBindingSource
-        '
-        Me.qryVisitsWithClientForPickTicketBindingSource.DataMember = "qryVisitsWithClientForPickTicket"
-        Me.qryVisitsWithClientForPickTicketBindingSource.DataSource = Me.Food_PantryDataSet2
-        '
-        'Food_PantryDataSet2
-        '
-        Me.Food_PantryDataSet2.DataSetName = "Food_PantryDataSet2"
-        Me.Food_PantryDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -81,14 +61,6 @@ Partial Class frmPrintTicketSample1
         Me.ReportViewer1.Size = New System.Drawing.Size(918, 556)
         Me.ReportViewer1.TabIndex = 0
         '
-        'PrintTicketFoodItemsTableAdapter
-        '
-        Me.PrintTicketFoodItemsTableAdapter.ClearBeforeFill = True
-        '
-        'qryVisitsWithClientForPickTicketTableAdapter
-        '
-        Me.qryVisitsWithClientForPickTicketTableAdapter.ClearBeforeFill = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -107,6 +79,34 @@ Partial Class frmPrintTicketSample1
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Done"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'PrintTicketFoodItemsBindingSource
+        '
+        Me.PrintTicketFoodItemsBindingSource.DataMember = "PrintTicketFoodItems"
+        Me.PrintTicketFoodItemsBindingSource.DataSource = Me.Food_PantryDataSet
+        '
+        'Food_PantryDataSet
+        '
+        Me.Food_PantryDataSet.DataSetName = "Food_PantryDataSet"
+        Me.Food_PantryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'qryVisitsWithClientForPickTicketBindingSource
+        '
+        Me.qryVisitsWithClientForPickTicketBindingSource.DataMember = "qryVisitsWithClientForPickTicket"
+        Me.qryVisitsWithClientForPickTicketBindingSource.DataSource = Me.Food_PantryDataSet2
+        '
+        'Food_PantryDataSet2
+        '
+        Me.Food_PantryDataSet2.DataSetName = "Food_PantryDataSet2"
+        Me.Food_PantryDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PrintTicketFoodItemsTableAdapter
+        '
+        Me.PrintTicketFoodItemsTableAdapter.ClearBeforeFill = True
+        '
+        'qryVisitsWithClientForPickTicketTableAdapter
+        '
+        Me.qryVisitsWithClientForPickTicketTableAdapter.ClearBeforeFill = True
         '
         'frmPrintTicketSample1
         '

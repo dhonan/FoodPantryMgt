@@ -73,8 +73,7 @@
             If DataGridView1.Columns(i).DataPropertyName.ToString = "ID" Then
                 ItemsTypeTable = ItemTypeTA.GetDataByItemTypeId(DataGridView1.SelectedRows(0).Cells(i).Value)
                 If ItemsTypeTable.Rows.Count > 0 Then
-                    MsgBox("Item Type Cannot Be Deleted as long as this Item Type is Assigned to ITEMS." _
-                            & vbCrLf & "Change the Type for Items with this type")
+                    MsgBox("Item Type Cannot Be Deleted as long as Items are using this Type.")
                     e.Cancel = True
                     Exit Sub
                 End If

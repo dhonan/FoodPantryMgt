@@ -131,8 +131,8 @@ Public Class TicketPrint
         Dim report As New LocalReport()
         VisitID = ID
 
-        report.ReportPath = "..\..\PrintTicket2.rdlc"
-
+        'report.ReportPath = "..\..\PrintTicket2.rdlc"  ' test
+        report.ReportPath = "PrintTicket2.rdlc"   
 
 
         'report.ClientsTableAdapter.Fill(Me.Food_PantryDataSet.Clients)

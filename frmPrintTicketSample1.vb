@@ -17,6 +17,10 @@ Public Class frmPrintTicketSample1
     Private Sub frmPrintTicketSample1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
 
+        Me.ReportViewer1.LocalReport.ReportPath = "PrintTicket2.rdlc"
+
+
+
 
 
         'TODO: This line of code loads data into the 'Food_PantryDataSet2.qryVisitsWithClientForPickTicket' table. You can move, or remove it, as needed.

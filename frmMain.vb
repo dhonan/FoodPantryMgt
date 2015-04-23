@@ -818,7 +818,7 @@ Public Class frmMain
                 & ", #" & VisitDate & "#, #" & dtApptTime & "#, 0," _
                 & chkDelivery.Checked.ToString & ")"
             ' ExecuteSQLCommand(SQL)
-            'dB.Close()
+            dB.Close()
             Dim TA1 As New DataSet1TableAdapters.VisitsTableAdapter
             TA1.Insert(SelectedClientNumber, VisitDate, dtApptTime, 0, False)
             ' Dim TA3 As New DataSet1TableAdapters.VisitsTableAdapter

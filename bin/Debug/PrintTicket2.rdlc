@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="Food_PantryConnectionString">
+      <rd:DataSourceID>fdfecc9e-555b-41ee-8d3b-d12a72b81b2e</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source="C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\Food Pantry.mdb"</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+    <DataSource Name="Food_PantryConnectionString2">
+      <rd:DataSourceID>7f01e03d-e247-42ef-b509-061e05d997a0</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>OLEDB</DataProvider>
+        <ConnectString>Provider=Microsoft.Jet.OLEDB.4.0;Data Source="|DataDirectory|\Food Pantry.mdb"</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>0.1in</RightMargin>
+  <LeftMargin>0.1in</LeftMargin>
+  <BottomMargin>0.5in</BottomMargin>
+  <rd:ReportID>3803e031-0126-4d18-860b-17e11323ed1b</rd:ReportID>
+  <DataSets>
+    <DataSet Name="Food_PantryDataSet_PrintTicketFoodItems">
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Row1">
+          <DataField>Row1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Col1">
+          <DataField>Col1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Col2">
+          <DataField>Col2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Col3">
+          <DataField>Col3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Col4">
+          <DataField>Col4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>Food_PantryConnectionString</DataSourceName>
+        <CommandText>SELECT ID, Row1, Col1, Col2, Col3, Col4 FROM PrintTicketFoodItems</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Food_PantryDataSet</rd:DataSetName>
+        <rd:TableName>PrintTicketFoodItems</rd:TableName>
+        <rd:TableAdapterName>PrintTicketFoodItemsTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Food_PantryDataSet2_qryVisitsWithClientForPickTicket">
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CaseNumber">
+          <DataField>CaseNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VisitDate">
+          <DataField>VisitDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ApptTime">
+          <DataField>ApptTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="NumberOfBags">
+          <DataField>NumberOfBags</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Delivery">
+          <DataField>Delivery</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="FirstName">
+          <DataField>FirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LastName">
+          <DataField>LastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhoneH">
+          <DataField>PhoneH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhoneW">
+          <DataField>PhoneW</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhoneC">
+          <DataField>PhoneC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NumberOfAdults">
+          <DataField>NumberOfAdults</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MaleAdults">
+          <DataField>MaleAdults</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FemaleAdults">
+          <DataField>FemaleAdults</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NumberOfChildren">
+          <DataField>NumberOfChildren</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MaleChildren">
+          <DataField>MaleChildren</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FemaleChildren">
+          <DataField>FemaleChildren</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AgesOfChildren">
+          <DataField>AgesOfChildren</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HomeLess">
+          <DataField>HomeLess</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Diabetic">
+          <DataField>Diabetic</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Senior">
+          <DataField>Senior</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="NumberOfSeniors">
+          <DataField>NumberOfSeniors</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MaleSeniors">
+          <DataField>MaleSeniors</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FemaleSeniors">
+          <DataField>FemaleSeniors</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Notes">
+          <DataField>Notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Deaf">
+          <DataField>Deaf</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Special">
+          <DataField>Special</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Military">
+          <DataField>Military</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="OtherAdults">
+          <DataField>OtherAdults</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NoPork">
+          <DataField>NoPork</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="NoCooking">
+          <DataField>NoCooking</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SpecialReq">
+          <DataField>SpecialReq</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FoodAllergies">
+          <DataField>FoodAllergies</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LastVisit">
+          <DataField>LastVisit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>Food_PantryConnectionString2</DataSourceName>
+        <CommandText>SELECT ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit FROM qryVisitsWithClientForPickTicket</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Food_PantryDataSet2</rd:DataSetName>
+        <rd:TableName>qryVisitsWithClientForPickTicket</rd:TableName>
+        <rd:TableAdapterName>qryVisitsWithClientForPickTicketTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>8in</Width>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox15">
+        <rd:DefaultName>textbox15</rd:DefaultName>
+        <Top>9.625in</Top>
+        <Width>3.5in</Width>
+        <Style>
+          <FontStyle>Italic</FontStyle>
+          <FontSize>8pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>24</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.375in</Left>
+        <Height>0.25in</Height>
+        <Value>St Vincent dePaul reserves the right to limit food when necessary</Value>
+      </Textbox>
+      <Textbox Name="FirstName">
+        <rd:DefaultName>FirstName</rd:DefaultName>
+        <Top>9.6875in</Top>
+        <Width>2.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>23</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.20833in</Left>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!FirstName.Value &amp; " " &amp; Fields!LastName.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox14">
+        <Top>9.5in</Top>
+        <Width>3.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>22</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.375in</Left>
+        <Height>0.25in</Height>
+        <Value>Please Sign: _________________________________</Value>
+      </Textbox>
+      <Textbox Name="textbox13">
+        <rd:DefaultName>textbox13</rd:DefaultName>
+        <Top>9.07292in</Top>
+        <Width>2.375in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>21</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.375in</Left>
+        <Height>0.25in</Height>
+        <Value>Cloth Bags: _______________</Value>
+      </Textbox>
+      <Textbox Name="textbox12">
+        <rd:DefaultName>textbox12</rd:DefaultName>
+        <Top>9.07292in</Top>
+        <Width>3.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>20</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.375in</Left>
+        <Height>0.25in</Height>
+        <Value>Order Filled By: _________________________________</Value>
+      </Textbox>
+      <Textbox Name="AgesOfChildren">
+        <rd:DefaultName>AgesOfChildren</rd:DefaultName>
+        <Top>1.42708in</Top>
+        <Width>3.25in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>19</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.125in</Left>
+        <Height>0.25in</Height>
+        <Value>="Ages of Children: " &amp; First(Fields!AgesOfChildren.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox11">
+        <Top>1in</Top>
+        <Width>0.875in</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>18</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>2.125in</Left>
+        <Height>0.375in</Height>
+        <Value>="Seniors: " &amp; Sum(Fields!NumberOfSeniors.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+Chr(10) &amp; chr(13) &amp;
+"M:" &amp; 
+Sum(Fields!MaleSeniors.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+"  F:" &amp; 
+Sum(Fields!FemaleSeniors.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox10">
+        <Top>1in</Top>
+        <Width>0.875in</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>17</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.125in</Left>
+        <Height>0.375in</Height>
+        <Value>="Adults: " &amp; Sum(Fields!NumberOfAdults.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+Chr(10) &amp; chr(13) &amp;
+"M:" &amp; 
+Sum(Fields!MaleAdults.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+"  F:" &amp; 
+Sum(Fields!FemaleAdults.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox9">
+        <Top>1in</Top>
+        <Width>0.875in</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>16</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.125in</Left>
+        <Height>0.375in</Height>
+        <Value>="Children: " &amp; Sum(Fields!NumberOfChildren.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+Chr(10) &amp; chr(13) &amp;
+"M:" &amp; 
+Sum(Fields!MaleChildren.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp;
+"  F:" &amp; 
+Sum(Fields!FemaleChildren.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="VisitDate">
+        <rd:DefaultName>VisitDate</rd:DefaultName>
+        <Top>0.625in</Top>
+        <Width>3in</Width>
+        <Style>
+          <FontSize>18pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>15</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.125in</Left>
+        <Height>0.25in</Height>
+        <Value>=First(Format(Fields!VisitDate.value,"MM/dd/yyyy"), "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; 
+"   " &amp;
+First(Format(Fields!ApptTime.value,"hh:mm tt"), "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox7">
+        <Top>1.25in</Top>
+        <Width>1.625in</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>14</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.25in</Height>
+        <Value>Notes</Value>
+      </Textbox>
+      <Textbox Name="textbox8">
+        <Top>1.36458in</Top>
+        <Width>2.75in</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>13</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.5in</Height>
+        <Value>=First(Fields!Notes.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Top>0.625in</Top>
+        <Width>1.625in</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>12</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.25in</Height>
+        <Value>Food Allergies</Value>
+      </Textbox>
+      <Textbox Name="textbox6">
+        <Top>0.77083in</Top>
+        <Width>2.75in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>11</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.4in</Height>
+        <Value>=First(Fields!FoodAllergies.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <Width>1.625in</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>10</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.25in</Height>
+        <Value>Special Requests</Value>
+      </Textbox>
+      <Textbox Name="textbox3">
+        <rd:DefaultName>textbox3</rd:DefaultName>
+        <Top>0.1875in</Top>
+        <Width>2.875in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>9</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5in</Left>
+        <Height>0.4in</Height>
+        <Value>=First(Fields!SpecialReq.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <rd:DefaultName>textbox2</rd:DefaultName>
+        <Width>1.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>8</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.25in</Left>
+        <Height>1.25in</Height>
+        <Value>=First(Fields!LastVisit.Value, 
+"Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; chr(13) &amp; chr(10) &amp;
+iif(First(Fields!NoPork.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Pork" &amp; chr(13) &amp; chr(10),"") &amp;
+iif(First(Fields!NoCooking.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Cooking Facilities" &amp; chr(13) &amp; chr(10),"") &amp;
+iif(First(Fields!Deaf.value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"Deaf" &amp; chr(13) &amp; chr(10),"") &amp;
+iif(First(Fields!HomeLess.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Living Facilities" &amp; chr(13) &amp; chr(10),"") &amp;
+iif(First(Fields!Diabetic.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"Diabetic" ,"")</Value>
+      </Textbox>
+      <Rectangle Name="rectangle5">
+        <Left>0.125in</Left>
+        <ZIndex>7</ZIndex>
+        <ReportItems>
+          <Textbox Name="CaseNumber_1">
+            <rd:DefaultName>CaseNumber_1</rd:DefaultName>
+            <Top>0.05208in</Top>
+            <Width>0.5in</Width>
+            <Style>
+              <FontSize>16pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Right</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <CanGrow>true</CanGrow>
+            <Height>0.25in</Height>
+            <Value>=First(Fields!CaseNumber.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>0.25in</Top>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderColor>
+            <Default>DimGray</Default>
+          </BorderColor>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>0.375in</Height>
+      </Rectangle>
+      <Textbox Name="textbox1">
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Width>2.25in</Width>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>6</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.05208in</Left>
+        <Height>0.25in</Height>
+        <Value>St. Vincent dePaul - Hampton</Value>
+      </Textbox>
+      <Textbox Name="Name">
+        <Top>0.25in</Top>
+        <Width>2.375in</Width>
+        <Style>
+          <FontSize>18pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>5</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.75in</Left>
+        <Height>0.32292in</Height>
+        <Value>=First(Fields!FirstName.Value &amp; " " &amp; Fields!LastName.Value  , "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Rectangle Name="rectangle4">
+        <Left>6.07292in</Left>
+        <ZIndex>4</ZIndex>
+        <Top>1.98958in</Top>
+        <Width>1.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>6.875in</Height>
+      </Rectangle>
+      <Rectangle Name="rectangle3">
+        <Left>4.17708in</Left>
+        <ZIndex>3</ZIndex>
+        <Top>1.98958in</Top>
+        <Width>1.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>6.875in</Height>
+      </Rectangle>
+      <Rectangle Name="rectangle2">
+        <Left>2.25in</Left>
+        <ZIndex>2</ZIndex>
+        <Top>2in</Top>
+        <Width>1.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>6.86458in</Height>
+      </Rectangle>
+      <Rectangle Name="rectangle1">
+        <Left>0.375in</Left>
+        <ZIndex>1</ZIndex>
+        <Top>2in</Top>
+        <Width>1.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Height>6.86458in</Height>
+      </Rectangle>
+      <Table Name="table1">
+        <DataSetName>Food_PantryDataSet_PrintTicketFoodItems</DataSetName>
+        <Top>1.98958in</Top>
+        <Width>7.6in</Width>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Col1">
+                      <rd:DefaultName>Col1</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>=iif(mid(Fields!Col1.Value,1,1)="■","Bold","Normal")</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Col1.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Col2">
+                      <rd:DefaultName>Col2</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>=iif(mid(Fields!Col2.Value,1,1)="■","Bold","Normal")</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Col2.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Col3">
+                      <rd:DefaultName>Col3</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>=iif(mid(Fields!Col3.Value,1,1)="■","Bold","Normal")</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Col3.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Col4">
+                      <rd:DefaultName>Col4</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>=iif(mid(Fields!Col4.Value,1,1)="■","Bold","Normal")</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Col4.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.21in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns>
+          <TableColumn>
+            <Width>1.9in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.9in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.9in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.9in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>0.21in</Height>
+        <Left>0.375in</Left>
+      </Table>
+    </ReportItems>
+    <Height>10.125in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>0.5in</TopMargin>
+</Report>

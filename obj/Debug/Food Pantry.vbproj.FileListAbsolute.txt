@@ -36,7 +36,6 @@ C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form1.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmChanges.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmExtractInformation.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmGroupItems.resources
@@ -58,20 +57,14 @@ C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\RdlCompile.cache
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\RdlCompile.compiled
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmOpenTickets.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form2.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form3.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form4.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Food Pantry.mdb
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form5.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form7.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmTestPrintTicekt1.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmtestReport5.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmItemTypes.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form8.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form9.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form10.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form11.resources
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.Form12.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmPrintTicketSample1.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmItems2.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Debug\Food_Pantry.frmVisit.resources
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Debug\PrintTicket2.rdlc
