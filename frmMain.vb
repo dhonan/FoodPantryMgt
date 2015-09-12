@@ -918,14 +918,17 @@ Public Class frmMain
 
             ' djh 3/17/15 future appt date
 
-            ' Dim SQL As String = "DELETE FROM Visits WHERE CaseNumber = " _
-            '     & SelectedClientNumber & " And " & VisitedThisWeekSQL 'VisitDate = #" & Format(Now, "MM/dd/yyyy") & "#"
+            'Dim SQL As String = "DELETE FROM Visits WHERE CaseNumber = " _
+            '   & SelectedClientNumber & " And " & VisitedThisWeekSQL 'VisitDate = #" & Format(Now, "MM/dd/yyyy") & "#"
+            'Dim SQL As String = "DELETE FROM Visits WHERE CaseNumber = " _
+            '   & SelectedClientNumber & " And " _
+            '  & "DateValue(VisitDate)>=Date()"
+
+            ' 9/13/2015 DJH - changed to deleted last date specifically so that past dates and future dates 
+            ' can be deleted
             Dim SQL As String = "DELETE FROM Visits WHERE CaseNumber = " _
-                & SelectedClientNumber & " And " _
-                & "DateValue(VisitDate)>=Date()"
-
-
-
+               & SelectedClientNumber & " And " _
+              & "VisitDate = #" & Format(LastVisitDate, "MM/dd/yyyy hh:mm:ss tt") & "#"
 
 
             ExecuteSQLCommand(SQL)
@@ -1452,7 +1455,8 @@ Public Class frmMain
                 btnDelete.Visible = True
                 If Changed Then btnRecordAndPrint.Enabled = False Else btnRecordAndPrint.Enabled = True
                 Dim sWork As String = GetLastVisitDateForClient(SelectedClientNumber, SelectedClientName, True)
-                If IsDate(sWork) AndAlso DateDiff(DateInterval.Day, CDate(sWork), Now) <= 0 Then btnUnVisit.Visible = True Else btnUnVisit.Visible = False
+                ' 9/13/2105 DJH changed to allow up to 7 days to unvisit
+                If IsDate(sWork) AndAlso DateDiff(DateInterval.Day, CDate(sWork), Now) <= 7 Then btnUnVisit.Visible = True Else btnUnVisit.Visible = False
 
                 If Changed Then
                     btnUpdate.Visible = True
