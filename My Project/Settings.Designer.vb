@@ -63,26 +63,6 @@ Namespace My
                 Return CType(Me("Food_PantryConnectionString"),String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""|DataDirectory|\Food Pantry.mdb""")>  _
-        Public ReadOnly Property Food_PantryConnectionString1() As String
-            Get
-                Return CType(Me("Food_PantryConnectionString1"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""|DataDirectory|\Food Pantry.mdb""")>  _
-        Public ReadOnly Property Food_PantryConnectionString2() As String
-            Get
-                Return CType(Me("Food_PantryConnectionString2"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 

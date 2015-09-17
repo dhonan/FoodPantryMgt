@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Food_PantryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Food_PantryConnectionString (MySettings)" PropertyReference="ApplicationSettings.Food_Pantry.My.MySettings.GlobalReference.Default.Food_PantryConnectionString2" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Food_PantryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Food_PantryConnectionString (MySettings)" PropertyReference="ApplicationSettings.Food_Pantry.My.MySettings.GlobalReference.Default.Food_PantryConnectionString" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VisitsTableAdapter" GeneratorDataComponentClassName="VisitsTableAdapter" Name="Visits" UserDataComponentName="VisitsTableAdapter">

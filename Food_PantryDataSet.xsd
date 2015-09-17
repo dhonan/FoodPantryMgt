@@ -5,7 +5,6 @@
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Food_PantryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Food_PantryConnectionString (MySettings)" PropertyReference="ApplicationSettings.Food_Pantry.My.MySettings.GlobalReference.Default.Food_PantryConnectionString" Provider="System.Data.OleDb" />
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Food_PantryConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Food_PantryConnectionString2 (MySettings)" PropertyReference="ApplicationSettings.Food_Pantry.My.MySettings.GlobalReference.Default.Food_PantryConnectionString2" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientsTableAdapter" GeneratorDataComponentClassName="ClientsTableAdapter" Name="Clients" UserDataComponentName="ClientsTableAdapter">
@@ -450,7 +449,7 @@ WHERE        COLUMN = 4</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Items1TableAdapter" GeneratorDataComponentClassName="Items1TableAdapter" Name="Items1" UserDataComponentName="Items1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Food_PantryConnectionString2 (MySettings)" DbObjectName="Items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Food_PantryConnectionString (MySettings)" DbObjectName="Items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Items` WHERE ((`ID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemTypeID` IS NULL) OR (`ItemTypeID` = ?)) AND ((? = 1 AND `Limit` IS NULL) OR (`Limit` = ?)) AND ((? = 1 AND `Available` IS NULL) OR (`Available` = ?)) AND ((? = 1 AND `CountForNPeople` IS NULL) OR (`CountForNPeople` = ?)))</CommandText>
@@ -521,7 +520,7 @@ WHERE        COLUMN = 4</CommandText>
               <Mapping SourceColumn="CountForNPeople" DataSetColumn="CountForNPeople" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="Food_PantryConnectionString2 (MySettings)" DbObjectName="Items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByItemTypeId" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByItemTypeId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByItemTypeId" UserSourceName="FillBy">
+              <DbSource ConnectionRef="Food_PantryConnectionString (MySettings)" DbObjectName="Items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByItemTypeId" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByItemTypeId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByItemTypeId" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ID, ItemName, ItemTypeID, Limit, Available, CountForNPeople

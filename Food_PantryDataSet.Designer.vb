@@ -7241,7 +7241,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection
-            Me._connection.ConnectionString = Global.Food_Pantry.My.MySettings.Default.Food_PantryConnectionString2
+            Me._connection.ConnectionString = Global.Food_Pantry.My.MySettings.Default.Food_PantryConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
