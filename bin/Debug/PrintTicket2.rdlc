@@ -5,7 +5,7 @@
       <rd:DataSourceID>fdfecc9e-555b-41ee-8d3b-d12a72b81b2e</rd:DataSourceID>
       <ConnectionProperties>
         <DataProvider>OLEDB</DataProvider>
-        <ConnectString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source="C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\Food Pantry.mdb"</ConnectString>
+        <ConnectString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source='Food Pantry.mdb';</ConnectString>
       </ConnectionProperties>
     </DataSource>
     <DataSource Name="Food_PantryConnectionString2">
@@ -203,10 +203,29 @@
           <DataField>LastVisit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address2">
+          <DataField>Address2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Town">
+          <DataField>Town</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Zip">
+          <DataField>Zip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
-        <DataSourceName>Food_PantryConnectionString2</DataSourceName>
-        <CommandText>SELECT ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit FROM qryVisitsWithClientForPickTicket</CommandText>
+        <DataSourceName>Food_PantryConnectionString</DataSourceName>
+        <CommandText>SELECT        ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, 
+                         NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, 
+                         Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit, Address, Address2, Town, Zip
+FROM            qryVisitsWithClientForPickTicket</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <rd:DataSetInfo>
@@ -222,6 +241,42 @@
   <Width>8in</Width>
   <Body>
     <ReportItems>
+      <Textbox Name="Address">
+        <rd:DefaultName>Address</rd:DefaultName>
+        <Top>0.375in</Top>
+        <Width>1in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>26</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.375in</Left>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!Address.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; chr(13) &amp; chr(10) &amp;
+iif(len(First(Fields!Address2.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"))&gt;0, 
+First(Fields!Address2.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; chr(13) &amp; chr(10),"") &amp;
+First(Fields!Town.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; " NH " &amp;
+First(Fields!Zip.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
+      <Textbox Name="textbox16">
+        <Top>0.02083in</Top>
+        <Width>1.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>25</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.375in</Left>
+        <Height>0.1875in</Height>
+        <Value>=First(Fields!LastVisit.Value, 
+"Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
       <Textbox Name="textbox15">
         <rd:DefaultName>textbox15</rd:DefaultName>
         <Top>9.625in</Top>
@@ -306,7 +361,7 @@
       <Textbox Name="AgesOfChildren">
         <rd:DefaultName>AgesOfChildren</rd:DefaultName>
         <Top>1.42708in</Top>
-        <Width>3.25in</Width>
+        <Width>2.875in</Width>
         <Style>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -499,6 +554,7 @@ First(Format(Fields!ApptTime.value,"hh:mm tt"), "Food_PantryDataSet2_qryVisitsWi
       </Textbox>
       <Textbox Name="textbox2">
         <rd:DefaultName>textbox2</rd:DefaultName>
+        <Top>0.875in</Top>
         <Width>1.625in</Width>
         <Style>
           <PaddingLeft>2pt</PaddingLeft>
@@ -509,10 +565,8 @@ First(Format(Fields!ApptTime.value,"hh:mm tt"), "Food_PantryDataSet2_qryVisitsWi
         <ZIndex>8</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>3.25in</Left>
-        <Height>1.25in</Height>
-        <Value>=First(Fields!LastVisit.Value, 
-"Food_PantryDataSet2_qryVisitsWithClientForPickTicket") &amp; chr(13) &amp; chr(10) &amp;
-iif(First(Fields!NoPork.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Pork" &amp; chr(13) &amp; chr(10),"") &amp;
+        <Height>1in</Height>
+        <Value>=iif(First(Fields!NoPork.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Pork" &amp; chr(13) &amp; chr(10),"") &amp;
 iif(First(Fields!NoCooking.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Cooking Facilities" &amp; chr(13) &amp; chr(10),"") &amp;
 iif(First(Fields!Deaf.value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"Deaf" &amp; chr(13) &amp; chr(10),"") &amp;
 iif(First(Fields!HomeLess.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket"),"No Living Facilities" &amp; chr(13) &amp; chr(10),"") &amp;

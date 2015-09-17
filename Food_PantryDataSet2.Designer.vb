@@ -1548,6 +1548,14 @@ Partial Public Class Food_PantryDataSet2
         
         Private columnLastVisit As Global.System.Data.DataColumn
         
+        Private columnAddress As Global.System.Data.DataColumn
+        
+        Private columnAddress2 As Global.System.Data.DataColumn
+        
+        Private columnTown As Global.System.Data.DataColumn
+        
+        Private columnZip As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1818,6 +1826,34 @@ Partial Public Class Food_PantryDataSet2
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property AddressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAddress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Address2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAddress2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TownColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTown
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ZipColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZip
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1880,9 +1916,13 @@ Partial Public Class Food_PantryDataSet2
                     ByVal NoCooking As Boolean,  _
                     ByVal SpecialReq As String,  _
                     ByVal FoodAllergies As String,  _
-                    ByVal LastVisit As String) As qryVisitsWithClientForPickTicketRow
+                    ByVal LastVisit As String,  _
+                    ByVal Address As String,  _
+                    ByVal Address2 As String,  _
+                    ByVal Town As String,  _
+                    ByVal Zip As String) As qryVisitsWithClientForPickTicketRow
             Dim rowqryVisitsWithClientForPickTicketRow As qryVisitsWithClientForPickTicketRow = CType(Me.NewRow,qryVisitsWithClientForPickTicketRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit, Address, Address2, Town, Zip}
             rowqryVisitsWithClientForPickTicketRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowqryVisitsWithClientForPickTicketRow)
             Return rowqryVisitsWithClientForPickTicketRow
@@ -1936,6 +1976,10 @@ Partial Public Class Food_PantryDataSet2
             Me.columnSpecialReq = MyBase.Columns("SpecialReq")
             Me.columnFoodAllergies = MyBase.Columns("FoodAllergies")
             Me.columnLastVisit = MyBase.Columns("LastVisit")
+            Me.columnAddress = MyBase.Columns("Address")
+            Me.columnAddress2 = MyBase.Columns("Address2")
+            Me.columnTown = MyBase.Columns("Town")
+            Me.columnZip = MyBase.Columns("Zip")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2008,6 +2052,14 @@ Partial Public Class Food_PantryDataSet2
             MyBase.Columns.Add(Me.columnFoodAllergies)
             Me.columnLastVisit = New Global.System.Data.DataColumn("LastVisit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastVisit)
+            Me.columnAddress = New Global.System.Data.DataColumn("Address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAddress)
+            Me.columnAddress2 = New Global.System.Data.DataColumn("Address2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAddress2)
+            Me.columnTown = New Global.System.Data.DataColumn("Town", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTown)
+            Me.columnZip = New Global.System.Data.DataColumn("Zip", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZip)
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
@@ -2022,6 +2074,10 @@ Partial Public Class Food_PantryDataSet2
             Me.columnSpecialReq.MaxLength = 536870910
             Me.columnFoodAllergies.MaxLength = 255
             Me.columnLastVisit.MaxLength = 255
+            Me.columnAddress.MaxLength = 255
+            Me.columnAddress2.MaxLength = 255
+            Me.columnTown.MaxLength = 255
+            Me.columnZip.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4208,6 +4264,66 @@ Partial Public Class Food_PantryDataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableqryVisitsWithClientForPickTicket.AddressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Address' in table 'qryVisitsWithClientForPickTicket' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableqryVisitsWithClientForPickTicket.AddressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Address2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableqryVisitsWithClientForPickTicket.Address2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Address2' in table 'qryVisitsWithClientForPickTicket' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableqryVisitsWithClientForPickTicket.Address2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Town() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableqryVisitsWithClientForPickTicket.TownColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Town' in table 'qryVisitsWithClientForPickTicket' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableqryVisitsWithClientForPickTicket.TownColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Zip() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableqryVisitsWithClientForPickTicket.ZipColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Zip' in table 'qryVisitsWithClientForPickTicket' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableqryVisitsWithClientForPickTicket.ZipColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsIDNull() As Boolean
             Return Me.IsNull(Me.tableqryVisitsWithClientForPickTicket.IDColumn)
         End Function
@@ -4545,6 +4661,46 @@ Partial Public Class Food_PantryDataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetLastVisitNull()
             Me(Me.tableqryVisitsWithClientForPickTicket.LastVisitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsAddressNull() As Boolean
+            Return Me.IsNull(Me.tableqryVisitsWithClientForPickTicket.AddressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetAddressNull()
+            Me(Me.tableqryVisitsWithClientForPickTicket.AddressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsAddress2Null() As Boolean
+            Return Me.IsNull(Me.tableqryVisitsWithClientForPickTicket.Address2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetAddress2Null()
+            Me(Me.tableqryVisitsWithClientForPickTicket.Address2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTownNull() As Boolean
+            Return Me.IsNull(Me.tableqryVisitsWithClientForPickTicket.TownColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTownNull()
+            Me(Me.tableqryVisitsWithClientForPickTicket.TownColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsZipNull() As Boolean
+            Return Me.IsNull(Me.tableqryVisitsWithClientForPickTicket.ZipColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetZipNull()
+            Me(Me.tableqryVisitsWithClientForPickTicket.ZipColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5899,6 +6055,10 @@ Namespace Food_PantryDataSet2TableAdapters
             tableMapping.ColumnMappings.Add("SpecialReq", "SpecialReq")
             tableMapping.ColumnMappings.Add("FoodAllergies", "FoodAllergies")
             tableMapping.ColumnMappings.Add("LastVisit", "LastVisit")
+            tableMapping.ColumnMappings.Add("Address", "Address")
+            tableMapping.ColumnMappings.Add("Address2", "Address2")
+            tableMapping.ColumnMappings.Add("Town", "Town")
+            tableMapping.ColumnMappings.Add("Zip", "Zip")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -5913,21 +6073,22 @@ Namespace Food_PantryDataSet2TableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, La"& _ 
-                "stName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, Number"& _ 
-                "OfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Se"& _ 
-                "nior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Militar"& _ 
-                "y, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit FROM qry"& _ 
-                "VisitsWithClientForPickTicket"
+            Me._commandCollection(0).CommandText = "SELECT        ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstN"& _ 
+                "ame, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults,"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         NumberOfChildren, MaleChildren, FemaleChildren, Ages"& _ 
+                "OfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeni"& _ 
+                "ors, Notes, Deaf, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Special, Military, OtherAdults, NoP"& _ 
+                "ork, NoCooking, SpecialReq, FoodAllergies, LastVisit, Address, Address2, Town, Z"& _ 
+                "ip"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            qryVisitsWithClientForPickTicket"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, La"& _ 
-                "stName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, Number"& _ 
-                "OfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Se"& _ 
-                "nior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, Special, Militar"& _ 
-                "y, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit FROM qry"& _ 
-                "VisitsWithClientForPickTicket where ID=?"
+            Me._commandCollection(1).CommandText = "SELECT Address, Address2, AgesOfChildren, ApptTime, CaseNumber, Deaf, Delivery, D"& _ 
+                "iabetic, FemaleAdults, FemaleChildren, FemaleSeniors, FirstName, FoodAllergies, "& _ 
+                "HomeLess, ID, LastName, LastVisit, MaleAdults, MaleChildren, MaleSeniors, Milita"& _ 
+                "ry, NoCooking, NoPork, Notes, NumberOfAdults, NumberOfBags, NumberOfChildren, Nu"& _ 
+                "mberOfSeniors, OtherAdults, PhoneC, PhoneH, PhoneW, Senior, Special, SpecialReq,"& _ 
+                " Town, VisitDate, Zip FROM qryVisitsWithClientForPickTicket WHERE (ID = ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -5957,9 +6118,13 @@ Namespace Food_PantryDataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByID(ByVal dataTable As Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable, ByVal ID As Integer) As Integer
+        Public Overloads Overridable Function FillByID(ByVal dataTable As Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable, ByVal ID As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
+            If (ID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -5970,9 +6135,13 @@ Namespace Food_PantryDataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByID(ByVal ID As Integer) As Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable
+        Public Overloads Overridable Function GetDataByID(ByVal ID As Global.System.Nullable(Of Integer)) As Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
+            If (ID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable = New Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
