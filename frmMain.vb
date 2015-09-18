@@ -820,7 +820,9 @@ Public Class frmMain
             ' ExecuteSQLCommand(SQL)
             dB.Close()
             Dim TA1 As New DataSet1TableAdapters.VisitsTableAdapter
-            TA1.Insert(SelectedClientNumber, VisitDate, dtApptTime, 0, False)
+            ' 9/18/15 DJH added insert of delivery indicator - was defaulting to false
+            TA1.Insert(SelectedClientNumber, VisitDate, dtApptTime, 0, chkDelivery.Checked.ToString)
+
             ' Dim TA3 As New DataSet1TableAdapters.VisitsTableAdapter
             VisitID = TA1.GetLastIdForClient(SelectedClientNumber)
 
@@ -2074,5 +2076,4 @@ Public Class frmMain
 
 
 
-    
 End Class
