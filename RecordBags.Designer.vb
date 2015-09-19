@@ -52,6 +52,7 @@ Partial Class frmRecordBags
         Me.lblVisitCount = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.numAddBags = New System.Windows.Forms.NumericUpDown
+        Me.Delivery = New System.Windows.Forms.ColumnHeader
         Me.grpBags.SuspendLayout()
         CType(Me.numAddBags, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,12 +65,12 @@ Partial Class frmRecordBags
         Me.grpVisits.Size = New System.Drawing.Size(271, 429)
         Me.grpVisits.TabIndex = 0
         Me.grpVisits.TabStop = False
-        Me.grpVisits.Text = "Unresolved visits, colored rows are deliveries"
+        Me.grpVisits.Text = "Unresolved visits, colored rows are deliveries--"
         Me.grpVisits.Visible = False
         '
         'lvVisits
         '
-        Me.lvVisits.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.VisitID, Me.PersonID, Me.PersonName, Me.VisitDate, Me.ApptTime})
+        Me.lvVisits.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.VisitID, Me.PersonID, Me.PersonName, Me.VisitDate, Me.ApptTime, Me.Delivery})
         Me.lvVisits.FullRowSelect = True
         Me.lvVisits.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lvVisits.HideSelection = False
@@ -96,7 +97,7 @@ Partial Class frmRecordBags
         '
         Me.PersonName.DisplayIndex = 1
         Me.PersonName.Text = "Name"
-        Me.PersonName.Width = 270
+        Me.PersonName.Width = 210
         '
         'VisitDate
         '
@@ -310,6 +311,11 @@ Partial Class frmRecordBags
         Me.numAddBags.Size = New System.Drawing.Size(43, 20)
         Me.numAddBags.TabIndex = 11
         '
+        'Delivery
+        '
+        Me.Delivery.Text = "Delivery"
+        Me.Delivery.Width = 63
+        '
         'frmRecordBags
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -366,4 +372,5 @@ Partial Class frmRecordBags
     Friend WithEvents numAddBags As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ApptTime As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Delivery As System.Windows.Forms.ColumnHeader
 End Class

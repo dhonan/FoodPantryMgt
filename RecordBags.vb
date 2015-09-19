@@ -51,13 +51,21 @@ Public Class frmRecordBags
 
         Command = New OleDbCommand(SQL, dB)
         rsWork = Command.ExecuteReader
-        Dim ClientRows(4) As String     ' VisitID, PersonID, ClientName, Visit date, Appt Time
+        Dim ClientRows(5) As String     ' VisitID, PersonID, ClientName, Visit date, Appt Time
         'Dim myfont As New Font("Microsoft Sans Serif", FontStyle.Bold)
         While rsWork.Read
             ClientRows(0) = rsWork!ID.ToString
             ClientRows(1) = rsWork!CaseNumber.ToString
             ClientRows(2) = GetClientNameFromNumber(rsWork!CaseNumber)
             ClientRows(3) = Format(rsWork!VisitDate, "MM/dd")
+            ' Added delivery indicator DJH 9/18/15
+            If rsWork!Delivery Then
+                ClientRows(5) = "X"
+            Else
+                ClientRows(5) = ""
+            End If
+
+
 
             If IsDBNull(rsWork!ApptTime) Then
                 ClientRows(4) = ""
@@ -263,5 +271,9 @@ Public Class frmRecordBags
     End Sub
     Private Sub numAddBags_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles numAddBags.ValueChanged
         SaveASetting("AddBags", numAddBags.Value.ToString)
+    End Sub
+
+    Private Sub grpVisits_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grpVisits.Enter
+
     End Sub
 End Class
