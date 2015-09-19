@@ -97,18 +97,18 @@ Partial Class frmRecordBags
         '
         Me.PersonName.DisplayIndex = 1
         Me.PersonName.Text = "Name"
-        Me.PersonName.Width = 210
+        Me.PersonName.Width = 200
         '
         'VisitDate
         '
         Me.VisitDate.DisplayIndex = 2
         Me.VisitDate.Text = "Date"
-        Me.VisitDate.Width = 149
+        Me.VisitDate.Width = 80
         '
         'ApptTime
         '
         Me.ApptTime.Text = "Appt Time"
-        Me.ApptTime.Width = 149
+        Me.ApptTime.Width = 150
         '
         'btnDone
         '
@@ -314,7 +314,7 @@ Partial Class frmRecordBags
         'Delivery
         '
         Me.Delivery.Text = "Delivery"
-        Me.Delivery.Width = 63
+        Me.Delivery.Width = 150
         '
         'frmRecordBags
         '
