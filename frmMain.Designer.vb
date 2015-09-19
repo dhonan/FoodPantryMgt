@@ -996,12 +996,14 @@ Partial Class frmMain
         'grpOtherAdults
         '
         Me.grpOtherAdults.Controls.Add(Me.txtOtherAdults)
+        Me.grpOtherAdults.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpOtherAdults.ForeColor = System.Drawing.Color.Red
         Me.grpOtherAdults.Location = New System.Drawing.Point(282, 63)
         Me.grpOtherAdults.Name = "grpOtherAdults"
         Me.grpOtherAdults.Size = New System.Drawing.Size(179, 67)
         Me.grpOtherAdults.TabIndex = 134
         Me.grpOtherAdults.TabStop = False
-        Me.grpOtherAdults.Text = "Other adults in the household"
+        Me.grpOtherAdults.Text = "Advocacy"
         Me.grpOtherAdults.Visible = False
         '
         'txtOtherAdults
