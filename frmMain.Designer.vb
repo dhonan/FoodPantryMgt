@@ -166,6 +166,7 @@ Partial Class frmMain
         Me.cbNoPork = New System.Windows.Forms.CheckBox
         Me.cbNoCooking = New System.Windows.Forms.CheckBox
         Me.ReSize1 = New LarcomAndYoung.Windows.Forms.ReSize(Me.components)
+        Me.cbLimited = New System.Windows.Forms.CheckBox
         Me.MenuStrip1.SuspendLayout()
         Me.pnlClients.SuspendLayout()
         Me.grpVisits.SuspendLayout()
@@ -1431,6 +1432,7 @@ Partial Class frmMain
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.cbLimited)
         Me.Panel2.Controls.Add(Me.tbSpecialReq)
         Me.Panel2.Controls.Add(Me.Label24)
         Me.Panel2.Controls.Add(Me.Label25)
@@ -1511,6 +1513,16 @@ Partial Class frmMain
         Me.ReSize1.InitialHostContainerHeight = 697
         Me.ReSize1.InitialHostContainerWidth = 795
         Me.ReSize1.Tag = Nothing
+        '
+        'cbLimited
+        '
+        Me.cbLimited.AutoSize = True
+        Me.cbLimited.Location = New System.Drawing.Point(322, 4)
+        Me.cbLimited.Name = "cbLimited"
+        Me.cbLimited.Size = New System.Drawing.Size(59, 17)
+        Me.cbLimited.TabIndex = 163
+        Me.cbLimited.Text = "Limited"
+        Me.cbLimited.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -1703,4 +1715,5 @@ Partial Class frmMain
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents UpdateItemTypesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cbLimited As System.Windows.Forms.CheckBox
 End Class

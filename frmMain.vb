@@ -413,6 +413,7 @@ Public Class frmMain
         chkDiabetic.Checked = False
         chkMilitary.Checked = False
         chkDeaf.Checked = False
+        cbLimited.Checked = False
 
 
         txtOtherAdults.Text = ""
@@ -539,6 +540,7 @@ Public Class frmMain
         TheClient.DateStarted = datStarted.Value
         TheClient.Diabetic = chkDiabetic.Checked
         TheClient.Deaf = chkDeaf.Checked
+        TheClient.Limited = cbLimited.Checked
         TheClient.FirstName = txtFirstName.Text
         TheClient.Homeless = chkHomeless.Checked
         TheClient.LastName = txtLastName.Text
@@ -1223,6 +1225,7 @@ Public Class frmMain
                 chkHomeless.Checked = rsWork!Homeless
                 chkDiabetic.Checked = rsWork!Diabetic
                 chkDeaf.Checked = rsWork!Deaf
+                cbLimited.Checked = rsWork!Limited
 
                 cmbNumberOfAdults.Text = rsWork!NumberOfAdults
                 cmbNumberOfChildren.Text = rsWork!NumberOfChildren
@@ -1392,7 +1395,7 @@ Public Class frmMain
     Sub SomethingsChanged() Handles txtAddress.TextChanged, txtAddress2.TextChanged, txtAgesOfChildren.TextChanged, txtFirstName.TextChanged, txtLastName.TextChanged, txtPhoneH.TextChanged, txtPhoneC.TextChanged, txtPhoneW.TextChanged, _
     txtZip.TextChanged, datReopened.ValueChanged, datStarted.ValueChanged, chkActive.CheckedChanged, chkDiabetic.CheckedChanged, chkRegistrationIsComplete.CheckedChanged, chkHomeless.CheckedChanged, _
     cmbNumberOfAdults.SelectedIndexChanged, cmbNumberOfChildren.SelectedIndexChanged, cmbNumberOfSeniors.SelectedIndexChanged, txtCaseNumber.TextChanged, _
-    cmbTown.SelectedIndexChanged, txtNotes.TextChanged, chkDeaf.CheckedChanged, chkMilitary.CheckedChanged, _
+    cmbTown.SelectedIndexChanged, txtNotes.TextChanged, chkDeaf.CheckedChanged, cbLimited.CheckedChanged, chkMilitary.CheckedChanged, _
     txtOtherAdults.TextChanged, chkWIC.CheckedChanged, chkSNAP.CheckedChanged, cbFuelAsst.CheckedChanged, _
         cbMedicaid.CheckedChanged, _
         cbAidBlind.CheckedChanged, _
@@ -2021,7 +2024,7 @@ Public Class frmMain
     cmbNumberOfSeniors.SelectedIndexChanged, cmbNumberOfChildren.SelectedIndexChanged, _
     cmbNumberOfAdults.SelectedIndexChanged, chkWIC.CheckedChanged, chkSNAP.CheckedChanged, _
     chkRegistrationIsComplete.CheckedChanged, chkMilitary.CheckedChanged, chkHomeless.CheckedChanged, _
-    chkDiabetic.CheckedChanged, chkDeaf.CheckedChanged, chkActive.CheckedChanged, _
+    chkDiabetic.CheckedChanged, chkDeaf.CheckedChanged, cbLimited.CheckedChanged, chkActive.CheckedChanged, _
     cbWelfare.CheckedChanged, cbTANF.CheckedChanged, cbSubsHousing.CheckedChanged, _
     cbOldAge.CheckedChanged, cbNoPork.CheckedChanged, cbNoCooking.CheckedChanged, _
     cbMedicaid.CheckedChanged, cbIncomeEligible.CheckedChanged, cbHeadStart.CheckedChanged, _

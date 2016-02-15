@@ -81,6 +81,7 @@ Module modCommon
         Dim Homeless As Boolean
         Dim Diabetic As Boolean
         Dim Deaf As Boolean
+        Dim Limited As Boolean   ' 2/12/16 DJH
         Dim Special As Boolean
         Dim RegistrationIsComplete As Boolean
         Dim Military As Boolean
@@ -238,7 +239,7 @@ Module modCommon
             SQL += ", DateReOpened, NumberOfAdults, NumberOfChildren, NumberOfSeniors "
             SQL += ", MaleAdults, FemaleAdults, MaleChildren, FemaleChildren, MaleSeniors "
             SQL += ", FemaleSeniors, AgesOfChildren, Homeless, Diabetic, Military "
-            SQL += ", UnfinishedRegistraion, Deaf, Special, DateLastUpdated"
+            SQL += ", UnfinishedRegistraion, Deaf, Limited, Special, DateLastUpdated"    ' 2/11/16 added limited DJH
             SQL += ", OtherAdults, SNAP, WIC, FuelAssistance"
             SQL += " , Medicaid"
             SQL += " , AidBlind"
@@ -299,6 +300,7 @@ Module modCommon
             SQL += ", " & TheClient.Military
             SQL += ", " & Not TheClient.RegistrationIsComplete
             SQL += ", " & TheClient.Deaf
+            SQL += ", " & TheClient.Limited    '2/12/16 ADDED limited DJH
             SQL += ", " & TheClient.Special
             SQL += ", #" & Format(Now, "MM/dd/yyyy") & "#"
             SQL += ", '" & Trim(SanitizeTextForSQL(TheClient.OtherAdults)) & "'"
@@ -1087,6 +1089,7 @@ Module modCommon
         UpdateSQL += ", Diabetic = " & TheClient.Diabetic
         UpdateSQL += ", UnfinishedRegistraion = " & Not TheClient.RegistrationIsComplete
         UpdateSQL += ", Deaf = " & TheClient.Deaf
+        UpdateSQL += ", Limited = " & TheClient.Limited     '2/12/16 added DJH
         UpdateSQL += ", Special = " & TheClient.Special
         UpdateSQL += ", Military = " & TheClient.Military
         UpdateSQL += ", OtherAdults = '" & Trim(SanitizeTextForSQL(TheClient.OtherAdults)) & "'"

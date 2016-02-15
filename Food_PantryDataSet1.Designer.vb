@@ -278,6 +278,8 @@ Partial Public Class Food_PantryDataSet1
         
         Private columnCountForNPeople As Global.System.Data.DataColumn
         
+        Private columnLimitedItem As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -352,6 +354,13 @@ Partial Public Class Food_PantryDataSet1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property LimitedItemColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLimitedItem
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -381,9 +390,9 @@ Partial Public Class Food_PantryDataSet1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddItemsRow(ByVal ItemName As String, ByVal ItemTypeID As Integer, ByVal Limit As Integer, ByVal Available As Boolean, ByVal CountForNPeople As String) As ItemsRow
+        Public Overloads Function AddItemsRow(ByVal ItemName As String, ByVal ItemTypeID As Integer, ByVal Limit As Integer, ByVal Available As Boolean, ByVal CountForNPeople As String, ByVal LimitedItem As Boolean) As ItemsRow
             Dim rowItemsRow As ItemsRow = CType(Me.NewRow,ItemsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ItemName, ItemTypeID, Limit, Available, CountForNPeople}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ItemName, ItemTypeID, Limit, Available, CountForNPeople, LimitedItem}
             rowItemsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowItemsRow)
             Return rowItemsRow
@@ -414,6 +423,7 @@ Partial Public Class Food_PantryDataSet1
             Me.columnLimit = MyBase.Columns("Limit")
             Me.columnAvailable = MyBase.Columns("Available")
             Me.columnCountForNPeople = MyBase.Columns("CountForNPeople")
+            Me.columnLimitedItem = MyBase.Columns("LimitedItem")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -430,6 +440,8 @@ Partial Public Class Food_PantryDataSet1
             MyBase.Columns.Add(Me.columnAvailable)
             Me.columnCountForNPeople = New Global.System.Data.DataColumn("CountForNPeople", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCountForNPeople)
+            Me.columnLimitedItem = New Global.System.Data.DataColumn("LimitedItem", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLimitedItem)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -654,6 +666,20 @@ Partial Public Class Food_PantryDataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LimitedItem() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableItems.LimitedItemColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LimitedItem' in table 'Items' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableItems.LimitedItemColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsItemNameNull() As Boolean
             Return Me.IsNull(Me.tableItems.ItemNameColumn)
         End Function
@@ -701,6 +727,16 @@ Partial Public Class Food_PantryDataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCountForNPeopleNull()
             Me(Me.tableItems.CountForNPeopleColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsLimitedItemNull() As Boolean
+            Return Me.IsNull(Me.tableItems.LimitedItemColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetLimitedItemNull()
+            Me(Me.tableItems.LimitedItemColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -867,6 +903,7 @@ Namespace Food_PantryDataSet1TableAdapters
             tableMapping.ColumnMappings.Add("Limit", "Limit")
             tableMapping.ColumnMappings.Add("Available", "Available")
             tableMapping.ColumnMappings.Add("CountForNPeople", "CountForNPeople")
+            tableMapping.ColumnMappings.Add("LimitedItem", "LimitedItem")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -874,7 +911,7 @@ Namespace Food_PantryDataSet1TableAdapters
                 "emName` = ?)) AND ((? = 1 AND `ItemTypeID` IS NULL) OR (`ItemTypeID` = ?)) AND ("& _ 
                 "(? = 1 AND `Limit` IS NULL) OR (`Limit` = ?)) AND ((? = 1 AND `Available` IS NUL"& _ 
                 "L) OR (`Available` = ?)) AND ((? = 1 AND `CountForNPeople` IS NULL) OR (`CountFo"& _ 
-                "rNPeople` = ?)))"
+                "rNPeople` = ?)) AND ((? = 1 AND `LimitedItem` IS NULL) OR (`LimitedItem` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ItemName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemName", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -887,30 +924,35 @@ Namespace Food_PantryDataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Available", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Available", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CountForNPeople", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CountForNPeople", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedItem", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedItem", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Items` (`ItemName`, `ItemTypeID`, `Limit`, `Available`, `CountForNPe"& _ 
-                "ople`) VALUES (?, ?, ?, ?, ?)"
+                "ople`, `LimitedItem`) VALUES (?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ItemName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemName", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ItemTypeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemTypeID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Limit", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Limit", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Available", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Available", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CountForNPeople", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedItem", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Items` SET `ItemName` = ?, `ItemTypeID` = ?, `Limit` = ?, `Available` = ?"& _ 
-                ", `CountForNPeople` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR"& _ 
-                " (`ItemName` = ?)) AND ((? = 1 AND `ItemTypeID` IS NULL) OR (`ItemTypeID` = ?)) "& _ 
-                "AND ((? = 1 AND `Limit` IS NULL) OR (`Limit` = ?)) AND ((? = 1 AND `Available` I"& _ 
-                "S NULL) OR (`Available` = ?)) AND ((? = 1 AND `CountForNPeople` IS NULL) OR (`Co"& _ 
-                "untForNPeople` = ?)))"
+                ", `CountForNPeople` = ?, `LimitedItem` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `It"& _ 
+                "emName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemTypeID` IS NULL) OR ("& _ 
+                "`ItemTypeID` = ?)) AND ((? = 1 AND `Limit` IS NULL) OR (`Limit` = ?)) AND ((? = "& _ 
+                "1 AND `Available` IS NULL) OR (`Available` = ?)) AND ((? = 1 AND `CountForNPeopl"& _ 
+                "e` IS NULL) OR (`CountForNPeople` = ?)) AND ((? = 1 AND `LimitedItem` IS NULL) O"& _ 
+                "R (`LimitedItem` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ItemName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemName", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ItemTypeID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemTypeID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Limit", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Limit", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Available", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Available", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CountForNPeople", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedItem", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ItemName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemName", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ItemName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ItemName", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -922,6 +964,8 @@ Namespace Food_PantryDataSet1TableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Available", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Available", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CountForNPeople", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CountForNPeople", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CountForNPeople", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedItem", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedItem", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedItem", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -935,8 +979,8 @@ Namespace Food_PantryDataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, ItemName, ItemTypeID, Limit, Available, CountForNPeople FROM Items ord"& _ 
-                "er by ItemTypeID, ItemName"
+            Me._commandCollection(0).CommandText = "SELECT        ID, ItemName, ItemTypeID, Limit, Available, CountForNPeople, Limite"& _ 
+                "dItem"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY ItemTypeID, ItemName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -989,7 +1033,7 @@ Namespace Food_PantryDataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_ItemName As String, ByVal Original_ItemTypeID As Global.System.Nullable(Of Integer), ByVal Original_Limit As Global.System.Nullable(Of Integer), ByVal Original_Available As Boolean, ByVal Original_CountForNPeople As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_ItemName As String, ByVal Original_ItemTypeID As Global.System.Nullable(Of Integer), ByVal Original_Limit As Global.System.Nullable(Of Integer), ByVal Original_Available As Boolean, ByVal Original_CountForNPeople As String, ByVal Original_LimitedItem As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_ItemName Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -1021,6 +1065,8 @@ Namespace Food_PantryDataSet1TableAdapters
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_CountForNPeople,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_LimitedItem,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1039,7 +1085,7 @@ Namespace Food_PantryDataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ItemName As String, ByVal ItemTypeID As Global.System.Nullable(Of Integer), ByVal Limit As Global.System.Nullable(Of Integer), ByVal Available As Boolean, ByVal CountForNPeople As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal ItemName As String, ByVal ItemTypeID As Global.System.Nullable(Of Integer), ByVal Limit As Global.System.Nullable(Of Integer), ByVal Available As Boolean, ByVal CountForNPeople As String, ByVal LimitedItem As Boolean) As Integer
             If (ItemName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1061,6 +1107,7 @@ Namespace Food_PantryDataSet1TableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(CountForNPeople,String)
             End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(LimitedItem,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1079,7 +1126,7 @@ Namespace Food_PantryDataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ItemName As String, ByVal ItemTypeID As Global.System.Nullable(Of Integer), ByVal Limit As Global.System.Nullable(Of Integer), ByVal Available As Boolean, ByVal CountForNPeople As String, ByVal Original_ID As Integer, ByVal Original_ItemName As String, ByVal Original_ItemTypeID As Global.System.Nullable(Of Integer), ByVal Original_Limit As Global.System.Nullable(Of Integer), ByVal Original_Available As Boolean, ByVal Original_CountForNPeople As String) As Integer
+        Public Overloads Overridable Function Update(ByVal ItemName As String, ByVal ItemTypeID As Global.System.Nullable(Of Integer), ByVal Limit As Global.System.Nullable(Of Integer), ByVal Available As Boolean, ByVal CountForNPeople As String, ByVal LimitedItem As Boolean, ByVal Original_ID As Integer, ByVal Original_ItemName As String, ByVal Original_ItemTypeID As Global.System.Nullable(Of Integer), ByVal Original_Limit As Global.System.Nullable(Of Integer), ByVal Original_Available As Boolean, ByVal Original_CountForNPeople As String, ByVal Original_LimitedItem As Boolean) As Integer
             If (ItemName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1101,37 +1148,40 @@ Namespace Food_PantryDataSet1TableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(CountForNPeople,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(LimitedItem,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
             If (Original_ItemName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ItemName,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ItemName,String)
             End If
             If (Original_ItemTypeID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ItemTypeID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ItemTypeID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Original_Limit.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Limit.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Limit.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Available,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Available,Boolean)
             If (Original_CountForNPeople Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CountForNPeople,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_CountForNPeople,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_LimitedItem,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

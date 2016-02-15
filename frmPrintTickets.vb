@@ -197,6 +197,13 @@ Public Class frmPrintTickets
             If rsWork!Deaf Then
                 lblNotices.Text += vbCrLf & "Deaf"
             End If
+            ' 2/11/16 DJH added Limited
+            If rsWork!Limited Then
+                lblNotices.Text += vbCrLf & "Limited Selection"
+            End If
+
+
+
 
             If Len(lblDate.Text) > 0 Then
                 lblNotices.Text += vbCrLf & "Last Visit: " & lblDate.Text

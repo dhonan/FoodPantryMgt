@@ -28,7 +28,8 @@
 
         TempItemsTableAdapter.DeleteAllRows()
 
-        ItemsTable = ItemTableAdapter.GetDataByAvailable()
+        'ItemsTable = ItemTableAdapter.GetDataByAvailable()
+        ItemsTable = ItemTableAdapter.GetDataByAvailable_Limited()
 
         For Each ItemsRow In ItemsTable
             CurrentRow = CurrentRow + 1
