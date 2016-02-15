@@ -91,6 +91,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmItems2.Designer.vb">
       <DependentUpon>frmItems2.vb</DependentUpon>
     </Compile>
@@ -263,6 +269,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmItems2.resx">
       <DependentUpon>frmItems2.vb</DependentUpon>
     </EmbeddedResource>
@@ -275,9 +284,9 @@
     <EmbeddedResource Include="frmVisit.resx">
       <DependentUpon>frmVisit.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="PrintTicket2.rdlc">
+    <EmbeddedResource Include="PrintTicket2.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChanges.resx">
       <DependentUpon>frmChanges.vb</DependentUpon>
       <SubType>Designer</SubType>

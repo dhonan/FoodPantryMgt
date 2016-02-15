@@ -54,7 +54,8 @@
       </Fields>
       <Query>
         <DataSourceName>Food_PantryConnectionString</DataSourceName>
-        <CommandText>SELECT ID, Row1, Col1, Col2, Col3, Col4 FROM PrintTicketFoodItems</CommandText>
+        <CommandText>SELECT        ID, Row1, Col1, Col2, Col3, Col4
+FROM            PrintTicketFoodItems</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <rd:DataSetInfo>
@@ -219,12 +220,16 @@
           <DataField>Zip</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Limited">
+          <DataField>Limited</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>Food_PantryConnectionString</DataSourceName>
         <CommandText>SELECT        ID, CaseNumber, VisitDate, ApptTime, NumberOfBags, Delivery, FirstName, LastName, PhoneH, PhoneW, PhoneC, NumberOfAdults, MaleAdults, FemaleAdults, 
                          NumberOfChildren, MaleChildren, FemaleChildren, AgesOfChildren, HomeLess, Diabetic, Senior, NumberOfSeniors, MaleSeniors, FemaleSeniors, Notes, Deaf, 
-                         Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit, Address, Address2, Town, Zip
+                         Special, Military, OtherAdults, NoPork, NoCooking, SpecialReq, FoodAllergies, LastVisit, Address, Address2, Town, Zip, Limited
 FROM            qryVisitsWithClientForPickTicket</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
@@ -241,6 +246,22 @@ FROM            qryVisitsWithClientForPickTicket</CommandText>
   <Width>8in</Width>
   <Body>
     <ReportItems>
+      <Textbox Name="textbox16">
+        <rd:DefaultName>textbox16</rd:DefaultName>
+        <Top>1.75in</Top>
+        <Width>2.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>26</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25in</Left>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!Limited.Value, "Food_PantryDataSet2_qryVisitsWithClientForPickTicket")</Value>
+      </Textbox>
       <Textbox Name="textbox2">
         <rd:DefaultName>textbox2</rd:DefaultName>
         <Width>1.625in</Width>

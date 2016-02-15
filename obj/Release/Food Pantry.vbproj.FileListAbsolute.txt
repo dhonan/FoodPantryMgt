@@ -40,12 +40,21 @@ C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Release\Food Pantry.xml
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\obj\Release\Food Pantry.pdb
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Food Pantry _VS2008-2\bin\Release\PrintTicket2.rdlc
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.exe.config
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.exe
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.xml
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.exe.config
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\PrintTicket2.rdlc
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.mdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.pdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\LarcomAndYoung.Windows.Forms.ReSize.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.WinForms.xml
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\PrintTicket2.rdlc
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.mdb
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.exe.config
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.exe
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.pdb
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Food Pantry.xml
@@ -56,6 +65,7 @@ C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Micros
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Release\Microsoft.ReportViewer.WinForms.xml
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food_Pantry.Form1.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food_Pantry.frmItems2.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food_Pantry.frmPrintTicketSample1.resources
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food_Pantry.frmItemTypes.resources
@@ -82,15 +92,6 @@ C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food P
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.exe.licenses
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\RdlCompile.cache
 C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\RdlCompile.compiled
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.exe.config
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\PrintTicket2.rdlc
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.mdb
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.exe
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.pdb
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Food Pantry.xml
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\LarcomAndYoung.Windows.Forms.ReSize.dll
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.Common.dll
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
-C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.exe
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.xml
+C:\Users\Dennis\Dropbox\SVDP\FoodPantryManagmentSystem\Source\obj\Release\Food Pantry.pdb
