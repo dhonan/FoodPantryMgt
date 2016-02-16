@@ -51,10 +51,14 @@
           <DataField>Col4</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="LimitedInd">
+          <DataField>LimitedInd</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>Food_PantryConnectionString</DataSourceName>
-        <CommandText>SELECT        ID, Row1, Col1, Col2, Col3, Col4
+        <CommandText>SELECT        ID, Row1, Col1, Col2, Col3, Col4, LimitedInd
 FROM            PrintTicketFoodItems</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>

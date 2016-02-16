@@ -436,6 +436,16 @@ FROM            PrintTicketFoodItems</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
+              <DbSource ConnectionRef="Food_PantryConnectionString (MySettings)" DbObjectName="PrintTicketFoodItems" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByForSample" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByForSample" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByForSample" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, Row1, Col1, Col2, Col3, Col4, LimitedInd
+FROM            PrintTicketFoodItems
+WHERE        (LimitedInd = false)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="Food_PantryConnectionString (MySettings)" DbObjectName="PrintTicketFoodItems" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLimitedInd" GetMethodModifier="Public" GetMethodName="GetDataByLimitedInd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLimitedInd" UserSourceName="GetDataByLimitedInd">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">

@@ -17,24 +17,18 @@ Public Class frmPrintTicketSample1
     Private Sub frmPrintTicketSample1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
 
-        Me.ReportViewer1.LocalReport.ReportPath = "PrintTicket2.rdlc"
-
-
-
-
-
-        'TODO: This line of code loads data into the 'Food_PantryDataSet2.qryVisitsWithClientForPickTicket' table. You can move, or remove it, as needed.
         Me.qryVisitsWithClientForPickTicketTableAdapter.Fill(Me.Food_PantryDataSet2.qryVisitsWithClientForPickTicket)
+        Me.Food_PantryDataSet2.Clients.DefaultView.RowFilter = "CaseNumber=0"
+        Me.Food_PantryDataSet2.qryVisitsWithClientForPickTicket.DefaultView.RowFilter = "ID=0"
+        Me.qryVisitsWithClientForPickTicketBindingSource.DataSource = Me.Food_PantryDataSet2.qryVisitsWithClientForPickTicket.DefaultView
 
 
         Me.PrintTicketFoodItemsTableAdapter.Fill(Me.Food_PantryDataSet.PrintTicketFoodItems)
 
-
-        Me.Food_PantryDataSet2.Clients.DefaultView.RowFilter = "CaseNumber=0"
-        Me.Food_PantryDataSet2.qryVisitsWithClientForPickTicket.DefaultView.RowFilter = "ID=0"
-
-
-        Me.qryVisitsWithClientForPickTicketBindingSource.DataSource = Me.Food_PantryDataSet2.qryVisitsWithClientForPickTicket.DefaultView
+        ' added 2/16/16 DJH for limited food items
+        Me.Food_PantryDataSet.PrintTicketFoodItems.DefaultView.RowFilter = "LimitedInd=False"
+        Me.PrintTicketFoodItemsBindingSource.DataSource = Me.Food_PantryDataSet.PrintTicketFoodItems.DefaultView
+        ' End add 2/16/16
 
         Me.ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
         Me.ReportViewer1.ZoomMode = ZoomMode.Percent
