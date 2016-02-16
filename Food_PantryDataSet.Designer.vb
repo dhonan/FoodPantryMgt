@@ -1974,6 +1974,8 @@ Partial Public Class Food_PantryDataSet
         
         Private columnLineText As Global.System.Data.DataColumn
         
+        Private columnLimitedInd As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2034,6 +2036,13 @@ Partial Public Class Food_PantryDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property LimitedIndColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLimitedInd
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2063,9 +2072,9 @@ Partial Public Class Food_PantryDataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddtempHoldItemPrint1Row(ByVal Column As Integer, ByVal Row As Integer, ByVal LineText As String) As tempHoldItemPrint1Row
+        Public Overloads Function AddtempHoldItemPrint1Row(ByVal Column As Integer, ByVal Row As Integer, ByVal LineText As String, ByVal LimitedInd As Boolean) As tempHoldItemPrint1Row
             Dim rowtempHoldItemPrint1Row As tempHoldItemPrint1Row = CType(Me.NewRow,tempHoldItemPrint1Row)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Column, Row, LineText}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Column, Row, LineText, LimitedInd}
             rowtempHoldItemPrint1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowtempHoldItemPrint1Row)
             Return rowtempHoldItemPrint1Row
@@ -2094,6 +2103,7 @@ Partial Public Class Food_PantryDataSet
             Me.columnFieldColumn = MyBase.Columns("Column")
             Me.columnRow = MyBase.Columns("Row")
             Me.columnLineText = MyBase.Columns("LineText")
+            Me.columnLimitedInd = MyBase.Columns("LimitedInd")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2106,6 +2116,8 @@ Partial Public Class Food_PantryDataSet
             MyBase.Columns.Add(Me.columnRow)
             Me.columnLineText = New Global.System.Data.DataColumn("LineText", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLineText)
+            Me.columnLimitedInd = New Global.System.Data.DataColumn("LimitedInd", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLimitedInd)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -2254,6 +2266,8 @@ Partial Public Class Food_PantryDataSet
         
         Private columnCol4 As Global.System.Data.DataColumn
         
+        Private columnLimitedInd As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2328,6 +2342,13 @@ Partial Public Class Food_PantryDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property LimitedIndColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLimitedInd
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2357,9 +2378,9 @@ Partial Public Class Food_PantryDataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddPrintTicketFoodItemsRow(ByVal Row1 As Integer, ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String) As PrintTicketFoodItemsRow
+        Public Overloads Function AddPrintTicketFoodItemsRow(ByVal Row1 As Integer, ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String, ByVal LimitedInd As Boolean) As PrintTicketFoodItemsRow
             Dim rowPrintTicketFoodItemsRow As PrintTicketFoodItemsRow = CType(Me.NewRow,PrintTicketFoodItemsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Row1, Col1, Col2, Col3, Col4}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Row1, Col1, Col2, Col3, Col4, LimitedInd}
             rowPrintTicketFoodItemsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPrintTicketFoodItemsRow)
             Return rowPrintTicketFoodItemsRow
@@ -2390,6 +2411,7 @@ Partial Public Class Food_PantryDataSet
             Me.columnCol2 = MyBase.Columns("Col2")
             Me.columnCol3 = MyBase.Columns("Col3")
             Me.columnCol4 = MyBase.Columns("Col4")
+            Me.columnLimitedInd = MyBase.Columns("LimitedInd")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2406,6 +2428,8 @@ Partial Public Class Food_PantryDataSet
             MyBase.Columns.Add(Me.columnCol3)
             Me.columnCol4 = New Global.System.Data.DataColumn("Col4", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCol4)
+            Me.columnLimitedInd = New Global.System.Data.DataColumn("LimitedInd", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLimitedInd)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -4540,6 +4564,20 @@ Partial Public Class Food_PantryDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LimitedInd() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tabletempHoldItemPrint1.LimitedIndColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LimitedInd' in table 'tempHoldItemPrint1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletempHoldItemPrint1.LimitedIndColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsColumnNull() As Boolean
             Return Me.IsNull(Me.tabletempHoldItemPrint1.ColumnColumn)
         End Function
@@ -4567,6 +4605,16 @@ Partial Public Class Food_PantryDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetLineTextNull()
             Me(Me.tabletempHoldItemPrint1.LineTextColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsLimitedIndNull() As Boolean
+            Return Me.IsNull(Me.tabletempHoldItemPrint1.LimitedIndColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetLimitedIndNull()
+            Me(Me.tabletempHoldItemPrint1.LimitedIndColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4666,6 +4714,20 @@ Partial Public Class Food_PantryDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LimitedInd() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tablePrintTicketFoodItems.LimitedIndColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LimitedInd' in table 'PrintTicketFoodItems' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePrintTicketFoodItems.LimitedIndColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsRow1Null() As Boolean
             Return Me.IsNull(Me.tablePrintTicketFoodItems.Row1Column)
         End Function
@@ -4713,6 +4775,16 @@ Partial Public Class Food_PantryDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCol4Null()
             Me(Me.tablePrintTicketFoodItems.Col4Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsLimitedIndNull() As Boolean
+            Return Me.IsNull(Me.tablePrintTicketFoodItems.LimitedIndColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetLimitedIndNull()
+            Me(Me.tablePrintTicketFoodItems.LimitedIndColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6108,12 +6180,14 @@ Namespace Food_PantryDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Column", "Column")
             tableMapping.ColumnMappings.Add("Row", "Row")
             tableMapping.ColumnMappings.Add("LineText", "LineText")
+            tableMapping.ColumnMappings.Add("LimitedInd", "LimitedInd")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `tempHoldItemPrint1` WHERE ((`ID` = ?) AND ((? = 1 AND `Column` IS NU"& _ 
                 "LL) OR (`Column` = ?)) AND ((? = 1 AND `Row` IS NULL) OR (`Row` = ?)) AND ((? = "& _ 
-                "1 AND `LineText` IS NULL) OR (`LineText` = ?)))"
+                "1 AND `LineText` IS NULL) OR (`LineText` = ?)) AND ((? = 1 AND `LimitedInd` IS N"& _ 
+                "ULL) OR (`LimitedInd` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -6122,23 +6196,29 @@ Namespace Food_PantryDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Row", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LineText", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LineText", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedInd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `tempHoldItemPrint1` (`Column`, `Row`, `LineText`) VALUES (?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `tempHoldItemPrint1` (`Column`, `Row`, `LineText`, `LimitedInd`) VALU"& _ 
+                "ES (?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Row", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LineText", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `tempHoldItemPrint1` SET `Column` = ?, `Row` = ?, `LineText` = ? WHERE ((`"& _ 
-                "ID` = ?) AND ((? = 1 AND `Column` IS NULL) OR (`Column` = ?)) AND ((? = 1 AND `R"& _ 
-                "ow` IS NULL) OR (`Row` = ?)) AND ((? = 1 AND `LineText` IS NULL) OR (`LineText` "& _ 
-                "= ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `tempHoldItemPrint1` SET `Column` = ?, `Row` = ?, `LineText` = ?, `Limited"& _ 
+                "Ind` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Column` IS NULL) OR (`Column` = ?)) "& _ 
+                "AND ((? = 1 AND `Row` IS NULL) OR (`Row` = ?)) AND ((? = 1 AND `LineText` IS NUL"& _ 
+                "L) OR (`LineText` = ?)) AND ((? = 1 AND `LimitedInd` IS NULL) OR (`LimitedInd` ="& _ 
+                " ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Row", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LineText", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -6146,6 +6226,8 @@ Namespace Food_PantryDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Row", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LineText", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LineText", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedInd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -6159,19 +6241,22 @@ Namespace Food_PantryDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, [Column], Row, LineText FROM tempHoldItemPrint1"
+            Me._commandCollection(0).CommandText = "SELECT        ID, [Column], Row, LineText, LimitedInd"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tempHoldIt"& _ 
+                "emPrint1"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM tempHoldItemPrint1"
+            Me._commandCollection(1).CommandText = "DELETE FROM tempHoldItemPrint1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO `tempHoldItemPrint1` (`Column`, `Row`, `LineText`) VALUES (?, ?, ?)"
+            Me._commandCollection(2).CommandText = "INSERT INTO tempHoldItemPrint1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Column], Row, LineText"& _ 
+                ", LimitedInd)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?, ?, ?, ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Column", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Column", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Row", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LineText", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LineText", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6223,7 +6308,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Column As Global.System.Nullable(Of Integer), ByVal Original_Row As Global.System.Nullable(Of Integer), ByVal Original_LineText As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Column As Global.System.Nullable(Of Integer), ByVal Original_Row As Global.System.Nullable(Of Integer), ByVal Original_LineText As String, ByVal Original_LimitedInd As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Column.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -6246,6 +6331,8 @@ Namespace Food_PantryDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_LineText,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6264,7 +6351,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String, ByVal LimitedInd As Boolean) As Integer
             If (Column.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Column.Value,Integer)
             Else
@@ -6280,6 +6367,7 @@ Namespace Food_PantryDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(LineText,String)
             End If
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6298,7 +6386,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String, ByVal Original_ID As Integer, ByVal Original_Column As Global.System.Nullable(Of Integer), ByVal Original_Row As Global.System.Nullable(Of Integer), ByVal Original_LineText As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String, ByVal LimitedInd As Boolean, ByVal Original_ID As Integer, ByVal Original_Column As Global.System.Nullable(Of Integer), ByVal Original_Row As Global.System.Nullable(Of Integer), ByVal Original_LineText As String, ByVal Original_LimitedInd As Boolean) As Integer
             If (Column.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Column.Value,Integer)
             Else
@@ -6314,28 +6402,31 @@ Namespace Food_PantryDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(LineText,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(LimitedInd,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ID,Integer)
             If (Original_Column.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Column.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Column.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Original_Row.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Row.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Row.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_LineText Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_LineText,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_LineText,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6375,7 +6466,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function InsertQuery(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String) As Integer
+        Public Overloads Overridable Function InsertQuery(ByVal Column As Global.System.Nullable(Of Integer), ByVal Row As Global.System.Nullable(Of Integer), ByVal LineText As String, ByVal LimitedInd As Boolean) As Integer
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             If (Column.HasValue = true) Then
                 command.Parameters(0).Value = CType(Column.Value,Integer)
@@ -6392,6 +6483,7 @@ Namespace Food_PantryDataSetTableAdapters
             Else
                 command.Parameters(2).Value = CType(LineText,String)
             End If
+            command.Parameters(3).Value = CType(LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6536,13 +6628,15 @@ Namespace Food_PantryDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Col2", "Col2")
             tableMapping.ColumnMappings.Add("Col3", "Col3")
             tableMapping.ColumnMappings.Add("Col4", "Col4")
+            tableMapping.ColumnMappings.Add("LimitedInd", "LimitedInd")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `PrintTicketFoodItems` WHERE ((`ID` = ?) AND ((? = 1 AND `Row1` IS NU"& _ 
                 "LL) OR (`Row1` = ?)) AND ((? = 1 AND `Col1` IS NULL) OR (`Col1` = ?)) AND ((? = "& _ 
                 "1 AND `Col2` IS NULL) OR (`Col2` = ?)) AND ((? = 1 AND `Col3` IS NULL) OR (`Col3"& _ 
-                "` = ?)) AND ((? = 1 AND `Col4` IS NULL) OR (`Col4` = ?)))"
+                "` = ?)) AND ((? = 1 AND `Col4` IS NULL) OR (`Col4` = ?)) AND ((? = 1 AND `Limite"& _ 
+                "dInd` IS NULL) OR (`LimitedInd` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Row1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row1", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -6555,29 +6649,34 @@ Namespace Food_PantryDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Col3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col3", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Col4", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Col4", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedInd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `PrintTicketFoodItems` (`Row1`, `Col1`, `Col2`, `Col3`, `Col4`) VALUE"& _ 
-                "S (?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `PrintTicketFoodItems` (`Row1`, `Col1`, `Col2`, `Col3`, `Col4`, `Limi"& _ 
+                "tedInd`) VALUES (?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Row1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row1", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col1", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col2", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col3", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col4", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `PrintTicketFoodItems` SET `Row1` = ?, `Col1` = ?, `Col2` = ?, `Col3` = ?,"& _ 
-                " `Col4` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Row1` IS NULL) OR (`Row1` = ?)) A"& _ 
-                "ND ((? = 1 AND `Col1` IS NULL) OR (`Col1` = ?)) AND ((? = 1 AND `Col2` IS NULL) "& _ 
-                "OR (`Col2` = ?)) AND ((? = 1 AND `Col3` IS NULL) OR (`Col3` = ?)) AND ((? = 1 AN"& _ 
-                "D `Col4` IS NULL) OR (`Col4` = ?)))"
+                " `Col4` = ?, `LimitedInd` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Row1` IS NULL) "& _ 
+                "OR (`Row1` = ?)) AND ((? = 1 AND `Col1` IS NULL) OR (`Col1` = ?)) AND ((? = 1 AN"& _ 
+                "D `Col2` IS NULL) OR (`Col2` = ?)) AND ((? = 1 AND `Col3` IS NULL) OR (`Col3` = "& _ 
+                "?)) AND ((? = 1 AND `Col4` IS NULL) OR (`Col4` = ?)) AND ((? = 1 AND `LimitedInd"& _ 
+                "` IS NULL) OR (`LimitedInd` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Row1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row1", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col1", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col2", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col3", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Col4", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Row1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row1", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Row1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Row1", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -6589,6 +6688,8 @@ Namespace Food_PantryDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Col3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col3", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Col4", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Col4", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Col4", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_LimitedInd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_LimitedInd", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "LimitedInd", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -6602,35 +6703,38 @@ Namespace Food_PantryDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        ID, Row1, Col1, Col2, Col3, Col4"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            PrintTicketFoodIt"& _ 
-                "ems"
+            Me._commandCollection(0).CommandText = "SELECT        ID, Row1, Col1, Col2, Col3, Col4, LimitedInd"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Print"& _ 
+                "TicketFoodItems"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM            [PrintTicketFoodItems]"
+            Me._commandCollection(1).CommandText = "DELETE FROM PrintTicketFoodItems"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO PrintTicketFoodItems"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Row1, Col1)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT  "& _ 
-                "      Row, LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tempHoldItemPrint1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        column=1"
+            Me._commandCollection(2).CommandText = "INSERT INTO PrintTicketFoodItems"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Row1, Col1, LimitedIn"& _ 
+                "d)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        Row, LineText, limitedind"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tempHoldItemPrint1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 1"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "UPDATE       PrintTicketFoodItems INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         tempHoldIt"& _ 
                 "emPrint1 ON PrintTicketFoodItems.Row1 = tempHoldItemPrint1.Row"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET             "& _ 
-                "   Col2 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 2"
+                "   Col2 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 2  and  PrintTicket"& _ 
+                "FoodItems.LimitedInd = tempHoldItemPrint1.LimitedInd"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "UPDATE       PrintTicketFoodItems INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         tempHoldIt"& _ 
                 "emPrint1 ON PrintTicketFoodItems.Row1 = tempHoldItemPrint1.Row"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET             "& _ 
-                "   Col3 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 3"
+                "   Col3 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 3 and  PrintTicketF"& _ 
+                "oodItems.LimitedInd = tempHoldItemPrint1.LimitedInd"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "UPDATE       PrintTicketFoodItems INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         tempHoldIt"& _ 
                 "emPrint1 ON PrintTicketFoodItems.Row1 = tempHoldItemPrint1.Row"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET             "& _ 
-                "   Col4 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 4"
+                "   Col4 = tempHoldItemPrint1.LineText"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        COLUMN = 4 and  PrintTicketF"& _ 
+                "oodItems.LimitedInd = tempHoldItemPrint1.LimitedInd"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -6683,7 +6787,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Row1 As Global.System.Nullable(Of Integer), ByVal Original_Col1 As String, ByVal Original_Col2 As String, ByVal Original_Col3 As String, ByVal Original_Col4 As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Row1 As Global.System.Nullable(Of Integer), ByVal Original_Col1 As String, ByVal Original_Col2 As String, ByVal Original_Col3 As String, ByVal Original_Col4 As String, ByVal Original_LimitedInd As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Row1.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -6720,6 +6824,8 @@ Namespace Food_PantryDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Col4,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6738,7 +6844,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Row1 As Global.System.Nullable(Of Integer), ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Row1 As Global.System.Nullable(Of Integer), ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String, ByVal LimitedInd As Boolean) As Integer
             If (Row1.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Row1.Value,Integer)
             Else
@@ -6764,6 +6870,7 @@ Namespace Food_PantryDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(Col4,String)
             End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6782,7 +6889,7 @@ Namespace Food_PantryDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Row1 As Global.System.Nullable(Of Integer), ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String, ByVal Original_ID As Integer, ByVal Original_Row1 As Global.System.Nullable(Of Integer), ByVal Original_Col1 As String, ByVal Original_Col2 As String, ByVal Original_Col3 As String, ByVal Original_Col4 As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Row1 As Global.System.Nullable(Of Integer), ByVal Col1 As String, ByVal Col2 As String, ByVal Col3 As String, ByVal Col4 As String, ByVal LimitedInd As Boolean, ByVal Original_ID As Integer, ByVal Original_Row1 As Global.System.Nullable(Of Integer), ByVal Original_Col1 As String, ByVal Original_Col2 As String, ByVal Original_Col3 As String, ByVal Original_Col4 As String, ByVal Original_LimitedInd As Boolean) As Integer
             If (Row1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Row1.Value,Integer)
             Else
@@ -6808,42 +6915,45 @@ Namespace Food_PantryDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Col4,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(LimitedInd,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
             If (Original_Row1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Row1.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Row1.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_Col1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Col1,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Col1,String)
             End If
             If (Original_Col2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Col2,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Col2,String)
             End If
             If (Original_Col3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Col3,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Col3,String)
             End If
             If (Original_Col4 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Col4,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Col4,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_LimitedInd,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

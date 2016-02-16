@@ -21,6 +21,9 @@
         Dim Prefix As String = ""
         Dim PrefixItemType As String = "■"
 
+        Dim LimitedInd As Boolean
+
+
 
 
 
@@ -28,58 +31,68 @@
 
         TempItemsTableAdapter.DeleteAllRows()
 
-        'ItemsTable = ItemTableAdapter.GetDataByAvailable()
-        ItemsTable = ItemTableAdapter.GetDataByAvailable_Limited()
 
-        For Each ItemsRow In ItemsTable
-            CurrentRow = CurrentRow + 1
-
-            If (ItemsRow.ItemTypeName <> CurrentItemType And CurrentRow > (MaxRows - 5)) Then
-                For i = CurrentRow To MaxRows
-                    TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, "")
-                    CurrentRow = CurrentRow + 1
-                Next
+        For Type = 0 To 1      ' type 0 = regular items, type 1 = limited items
+            CurrentCol = 1
+            CurrentRow = 0
+            If Type = 0 Then
+                ItemsTable = ItemTableAdapter.GetDataByAvailable()
+                LimitedInd = False
+            Else
+                ItemsTable = ItemTableAdapter.GetDataByAvailable_Limited()
+                LimitedInd = True
             End If
-
-
-
-            If CurrentRow > MaxRows Then
-                CurrentRow = 1
-                CurrentCol = CurrentCol + 1
-            End If
-
-
-
-            If ItemsRow.ItemTypeName <> CurrentItemType Then
-                If CurrentRow <> 1 Then
-                    TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, "")
-                    CurrentRow = CurrentRow + 1
-                End If
-
-                TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, PrefixItemType & ItemsRow.ItemTypeName)
+            For Each ItemsRow In ItemsTable
                 CurrentRow = CurrentRow + 1
 
-                CurrentItemType = ItemsRow.ItemTypeName
-            Else
-                If CurrentRow = 1 And CurrentCol <> 1 Then
-                    TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, PrefixItemType & ItemsRow.ItemTypeName & "(Cont'd)")
-                    CurrentRow = CurrentRow + 1
+                If (ItemsRow.ItemTypeName <> CurrentItemType And CurrentRow > (MaxRows - 5)) Then
+                    For i = CurrentRow To MaxRows
+                        TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, "", LimitedInd)
+
+                        CurrentRow = CurrentRow + 1
+                    Next
                 End If
 
 
-            End If
-            If ItemsRow.ItemTypeUnderlineInd Then
-                Prefix = UnderLine1
-            Else
-                Prefix = Checkbox1
-            End If
-            TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, Prefix & " " & ItemsRow.ItemName)
 
+                If CurrentRow > MaxRows Then
+                    CurrentRow = 1
+                    CurrentCol = CurrentCol + 1
+                End If
+
+
+
+                If ItemsRow.ItemTypeName <> CurrentItemType Then
+                    If CurrentRow <> 1 Then
+                        TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, "", LimitedInd)
+                        CurrentRow = CurrentRow + 1
+                    End If
+
+                    TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, PrefixItemType & ItemsRow.ItemTypeName, LimitedInd)
+                    CurrentRow = CurrentRow + 1
+
+                    CurrentItemType = ItemsRow.ItemTypeName
+                Else
+                    If CurrentRow = 1 And CurrentCol <> 1 Then
+                        TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, PrefixItemType & ItemsRow.ItemTypeName & "(Cont'd)", LimitedInd)
+                        CurrentRow = CurrentRow + 1
+                    End If
+
+
+                End If
+                If ItemsRow.ItemTypeUnderlineInd Then
+                    Prefix = UnderLine1
+                Else
+                    Prefix = Checkbox1
+                End If
+                TempItemsTableAdapter.Insert(CurrentCol, CurrentRow, Prefix & " " & ItemsRow.ItemName, LimitedInd)
+
+
+            Next
 
         Next
         InsertPrintTicketRows()
 
-        
     End Sub
 
     Private Sub InsertPrintTicketRows()
