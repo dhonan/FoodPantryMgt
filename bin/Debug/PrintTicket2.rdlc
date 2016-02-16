@@ -675,16 +675,16 @@ First(Format(Fields!ApptTime.value,"hh:mm tt"), "Food_PantryDataSet2_qryVisitsWi
         <Height>6.86458in</Height>
       </Rectangle>
       <Rectangle Name="rectangle1">
-        <Left>0.375in</Left>
+        <Left>0.3125in</Left>
         <ZIndex>1</ZIndex>
-        <Top>3.875in</Top>
+        <Top>2in</Top>
         <Width>1.75in</Width>
         <Style>
           <BorderStyle>
             <Default>Solid</Default>
           </BorderStyle>
         </Style>
-        <Height>4.98958in</Height>
+        <Height>6.875in</Height>
       </Rectangle>
       <Table Name="table1">
         <DataSetName>Food_PantryDataSet_PrintTicketFoodItems</DataSetName>

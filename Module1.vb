@@ -33,10 +33,21 @@ Public Class TicketPrint
         'Return dataSet.Tables(0)
 
         'Dim DataSet2 As New DataSet()
+        Dim TA2 As New Food_PantryDataSet2TableAdapters.qryVisitsWithClientForPickTicketTableAdapter
+        Dim Tbl As New Food_PantryDataSet2.qryVisitsWithClientForPickTicketDataTable
+        Dim row As Food_PantryDataSet2.qryVisitsWithClientForPickTicketRow
+
+        Tbl = TA2.GetDataByID(VisitID)
+        row = Tbl.Rows(0)
+
+
+
+
 
         Dim TA As New Food_PantryDataSetTableAdapters.PrintTicketFoodItemsTableAdapter
         'Dim TA As New Food_PantryDataSetTableAdapters.ClientsTableAdapter
-        Return TA.GetData()
+        Return TA.GetDataByLimitedInd(row.Limited)
+
 
     End Function
 
